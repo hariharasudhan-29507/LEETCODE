@@ -30,9 +30,6 @@ A curated collection of LeetCode solutions organized by problem number. Each sol
   <a href="https://github.com/hariharasudhan-29507">
     <img src="https://img.shields.io/badge/GitHub-hariharasudhan--29507-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Profile"/>
   </a>
-  <a href="https://leetcode.com/u/hariharasudhan_29507/">
-    <img src="https://img.shields.io/badge/LeetCode-hariharasudhan__29507-FFA116?style=for-the-badge&logo=leetcode&logoColor=white" alt="LeetCode Profile"/>
-  </a>
 </p>
 
 ---
