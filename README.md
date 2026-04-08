@@ -14,8 +14,6 @@ This repository contains my personal solutions to problems from [LeetCode](https
 
 A curated collection of LeetCode solutions organized by problem number. Each solution is clean, readable, and accompanied by a direct link to the original problem on LeetCode.
 
----
-
 ## Author
 
 <p align="left">
