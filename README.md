@@ -10,6 +10,16 @@ This repository contains my personal solutions to problems from [LeetCode](https
 
 ---
 
+## Wiki
+
+Full documentation is available in the [wiki](wiki/Home.md):
+
+- [Home](wiki/Home.md)
+- [Getting Started](wiki/Getting-Started.md)
+- [Problems](wiki/Problems.md)
+
+---
+
 ## Description
 
 A curated collection of LeetCode solutions organized by problem number. Each solution is clean, readable, and accompanied by a direct link to the original problem on LeetCode.
