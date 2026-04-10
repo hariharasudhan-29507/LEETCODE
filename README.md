@@ -21,9 +21,9 @@ A curated collection of LeetCode solutions organized by problem number. Each sol
 
 ## Author
 
-A.Hariharasudhan.
-sophomore in Mepco schlenk engineering college in CSE.
-reach me: sudanayyappan_bcs28@mepcoeng.ac.in
+- A.Hariharasudhan.
+- sophomore in Mepco schlenk engineering college in CSE.
+- reach me: sudanayyappan_bcs28@mepcoeng.ac.in
 
 "learn something or left behind".
 
