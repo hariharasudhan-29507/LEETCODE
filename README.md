@@ -9,19 +9,23 @@ This repository contains my personal solutions to problems from [LeetCode](https
 - Status: Ongoing
 - LeetCode: [hariharasudhan_29507](https://leetcode.com/u/hariharasudhan_29507/)
 
----
-
 ## Wiki
 
-Full documentation is available in the [wiki](https://github.com/hariharasudhan-29507/LEETCODE/wiki)
+visit [wiki](https://github.com/hariharasudhan-29507/LEETCODE/wiki) for details on this repository
 
----
+
 
 ## Description
 
 A curated collection of LeetCode solutions organized by problem number. Each solution is clean, readable, and accompanied by a direct link to the original problem on LeetCode.
 
 ## Author
+
+A.Hariharasudhan
+sophomore in Mepco schlenk engineering college in CSE
+reach me: sudanayyappan_bcs28@mepcoeng.ac.in
+
+"learn something or left behind"
 
 <p align="left">
   <a href="https://github.com/hariharasudhan-29507">
