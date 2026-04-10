@@ -23,7 +23,7 @@ A curated collection of LeetCode solutions organized by problem number. Each sol
 
 **Hariharasudhan A**
 
-Student at Mepco Schlenk Engineering College, CSE Department.
+Sophomore at Mepco Schlenk Engineering College, CSE Department.
 
 📧 sudanayyappan_bcs28@mepcoeng.ac.in
 
