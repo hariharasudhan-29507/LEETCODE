@@ -21,11 +21,11 @@ A curated collection of LeetCode solutions organized by problem number. Each sol
 
 ## Author
 
-- A.Hariharasudhan.
-- sophomore in Mepco schlenk engineering college in CSE.
-- reach me: sudanayyappan_bcs28@mepcoeng.ac.in
+**Hariharasudhan A**
 
-"learn something or left behind".
+Student at Mepco Schlenk Engineering College, CSE Department.
+
+📧 sudanayyappan_bcs28@mepcoeng.ac.in
 
 <p align="left">
   <a href="https://github.com/hariharasudhan-29507">
