@@ -12,7 +12,7 @@ This repository contains my personal solutions to problems from [LeetCode](https
 
 ## Wiki
 
-Full documentation is available in the [wiki]([wiki/Home.md](https://github.com/hariharasudhan-29507/LEETCODE/wiki)
+Full documentation is available in the [wiki](https://github.com/hariharasudhan-29507/LEETCODE/wiki)
 
 ---
 
