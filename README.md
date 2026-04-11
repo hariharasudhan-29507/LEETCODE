@@ -37,7 +37,7 @@ Sophomore at Mepco Schlenk Engineering College, CSE Department.
 
 ## Problems Solved
 
-| # | Problem | Solution |
+| Qno| Problem | Solution |
 |---|---------|----------|
 | 1 | [Two Sum](https://leetcode.com/problems/two-sum/) | [Code](Codes/1.TwoSum.py) \| [Code (HashMap)](Codes/1.TwoSum(hashmap).py) |
 | 9 | [Palindrome Number](https://leetcode.com/problems/palindrome-number/) | [Code](Codes/9.Palindrome.py) |
