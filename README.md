@@ -7,8 +7,7 @@ This repository contains my personal solutions to problems from [LeetCode](https
 - Language: Python
 - Goal: Improve problem-solving and DSA skills
 - Status: Ongoing
-- LeetCode: [hariharasudhan_295]((https://leetcode.com/u/Hariharasudhan295/))
-
+- LeetCode: [hariharasudhan295](https://leetcode.com/u/Hariharasudhan295/)
 ## Wiki
 
 visit [wiki](https://github.com/hariharasudhan-29507/LEETCODE/wiki) for details on this repository
