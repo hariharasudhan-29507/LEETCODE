@@ -1,3 +1,4 @@
+#Author - Hariharasudhan A
 # class for node of the tree
 class TreeNode:
     def __init__(self,val=0,left=None,right=None):
