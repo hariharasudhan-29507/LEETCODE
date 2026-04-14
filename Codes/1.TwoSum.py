@@ -1,3 +1,4 @@
+#Author - Hariharasudhan A
 #brute force
 class Solution:
     def twoSum(self, nums, target):
