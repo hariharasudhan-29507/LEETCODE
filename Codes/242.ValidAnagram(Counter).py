@@ -1,7 +1,7 @@
 #Author - Hariharasudhan
 from collections import Counter
 ''' 
-collection is a hashmap 
+counter is a hashmap , counts and matches key : value pair accordingly 
 '''
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
