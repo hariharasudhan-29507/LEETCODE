@@ -45,7 +45,7 @@ Python/
 
 ## ✅ Problems Solved
 
-### 🟢 Easy
+### Easy
 
 | # | Problem | Solution |
 |---|---------|----------|
@@ -63,7 +63,7 @@ Python/
 | 1470 | [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/) | [Code](Easy/1470.ShuffleTheArray.py) |
 | 1929 | [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/) | [Code](Easy/1929.ConcatenationOfArray.py) |
 
-### 🟡 Medium
+### Medium
 
 | # | Problem | Solution |
 |---|---------|----------|
