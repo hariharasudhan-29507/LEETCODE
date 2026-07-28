@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧠 LeetCode Solutions
+# LeetCode Solutions
 
 ### A growing collection of hand-written LeetCode solutions in Python & C++
 
