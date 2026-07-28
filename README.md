@@ -48,7 +48,6 @@
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [Author](#-author)
-- [License](#-license)
 
 ---
 
