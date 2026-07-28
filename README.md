@@ -193,8 +193,7 @@ This is primarily a personal practice log, but suggestions, corrections, and mor
 
 <div align="center">
 
-**Hariharasudhan A**
-Sophomore · Mepco Schlenk Engineering College · CSE Department
+**Hariharasudhan A** Mepco Schlenk Engineering College · CSE Department
 
 <p>
   <a href="mailto:sudanayyappan_bcs28@mepcoeng.ac.in">
