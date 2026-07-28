@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://camo.githubusercontent.com/eb2f27e8b6b40c3b3c3d3e1a5c7c14bd4b83a35e07c3cf74af0a9f5a5a9a8a5a/68747470733a2f2f6c656574636f64652e636f6d2f7374617469632f66617669636f6e2e69636f" width="60" alt="LeetCode"/>
-
 # 🧠 LeetCode Solutions
 
 ### A growing collection of hand-written LeetCode solutions in Python & C++
@@ -17,6 +15,7 @@
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
   <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++"/>
   <img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=leetcode&logoColor=white" alt="LeetCode"/>
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" alt="MIT License"/>
 </p>
 
 <p>
@@ -48,6 +47,7 @@
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
 - [Author](#-author)
+- [License](#-license)
 
 ---
 
@@ -193,7 +193,8 @@ This is primarily a personal practice log, but suggestions, corrections, and mor
 
 <div align="center">
 
-**Hariharasudhan A** Mepco Schlenk Engineering College · CSE Department
+**Hariharasudhan A**
+Sophomore · Mepco Schlenk Engineering College · CSE Department
 
 <p>
   <a href="mailto:sudanayyappan_bcs28@mepcoeng.ac.in">
@@ -210,6 +211,12 @@ This is primarily a personal practice log, but suggestions, corrections, and mor
 </div>
 
 ---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — feel free to use any solution as a reference for your own learning.
+
+<div align="center">
 
 ⭐ **If this repo helped you, consider giving it a star!** ⭐
 
