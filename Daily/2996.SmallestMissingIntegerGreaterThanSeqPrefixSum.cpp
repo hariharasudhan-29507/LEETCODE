@@ -2,7 +2,6 @@ class Solution {
 public:
     int missingInteger(vector<int>& nums) {
         int sum = nums.at(0);
-        int res = 0;
         int n = nums.size();
 
         for(int i = 1 ; i < n; i++){
