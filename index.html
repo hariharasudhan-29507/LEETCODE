@@ -764,14 +764,283 @@
     font-size:10px;
   }
 
+  /* ===== ENHANCEMENT: FILM GRAIN OVERLAY ===== */
+  .grain-overlay{
+    position:fixed;
+    inset:0;
+    z-index:250;
+    pointer-events:none;
+    opacity:0.045;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ===== ENHANCEMENT: SPACING PASS ===== */
+  header{ padding:56px 28px 44px; }
+  .meta-line{ margin-top:28px; }
+  .stat-deck{ padding:0 28px 44px; margin-top:6px; }
+  .control-panel{ margin:0 auto 40px; }
+  .panel-inner{ padding:22px 24px; }
+  .panel-row{ gap:16px; }
+  .chip-group{ gap:8px; }
+  .divider-row{ margin:20px 0; }
+  .grid-wrap{ padding:0 28px 90px; }
+  .file-grid{ gap:20px; }
+  .card{ padding:18px 18px 20px; min-height:180px; }
+  .card-top{ margin-bottom:16px; }
+  .card-bottom{ margin-top:18px; }
+  .modal-header{ padding:24px 26px 20px; }
+  .modal-tags{ gap:10px; }
+  .brief-block{ padding:28px 26px 32px; }
+  .brief-footer{ margin-top:24px; padding-top:18px; }
+  .exhibits-list{ padding:24px 26px 32px; gap:18px; }
+  .exhibit-body{ padding:16px 18px 18px; }
+  .exhibit-row{ margin-bottom:10px; }
+  .code-toolbar{ padding:12px 26px; }
+  .code-toolbar .btns{ gap:10px; }
+  pre.code-block{ padding:24px 26px 32px; }
+  footer{ padding:34px 28px 64px; gap:14px; margin-top:10px; }
+  .action-row{ gap:12px; }
+
+  /* ===== ENHANCEMENT: PROFILE PANEL ===== */
+  .profile-panel{
+    max-width:1180px;
+    margin:0 auto 34px;
+    padding:0 28px;
+  }
+  .profile-inner{
+    border:3px solid var(--ink);
+    background:var(--paper);
+    padding:24px 26px;
+  }
+  .profile-head{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .profile-avatar{
+    width:58px; height:58px;
+    flex:0 0 auto;
+    background:var(--ink);
+    color:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Anton', sans-serif;
+    font-size:20px;
+    letter-spacing:0.02em;
+    overflow:hidden;
+    border:2px solid var(--ink);
+  }
+  .profile-id{ flex:1 1 240px; min-width:200px; }
+  .profile-name{
+    font-size:clamp(20px,3vw,26px);
+    line-height:1.1;
+    margin:0 0 6px;
+  }
+  .profile-handle{
+    font-size:12px;
+    color:var(--wire);
+    letter-spacing:0.04em;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+  .profile-handle a{ color:var(--ink); font-weight:700; text-decoration:none; border-bottom:2px solid var(--hazard); }
+  .profile-rank{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:var(--concrete-dark);
+    border:1px solid var(--wire);
+    padding:3px 8px;
+  }
+  .profile-link{ flex:0 0 auto; text-decoration:none; }
+  .profile-body{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:28px;
+    margin-top:20px;
+  }
+  .profile-label{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--wire);
+    margin-bottom:14px;
+  }
+  .lang-bar{ display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+  .lang-bar-name{ width:58px; flex:0 0 auto; font-size:11px; font-weight:700; letter-spacing:0.04em; }
+  .lang-bar-track{ flex:1 1 auto; height:10px; background:var(--concrete); border:1px solid var(--ink); overflow:hidden; }
+  .lang-bar-fill{ height:100%; background:var(--hazard); }
+  .lang-bar-num{ width:28px; flex:0 0 auto; text-align:right; font-size:11px; color:var(--wire); font-weight:700; }
+  .profile-skills{ gap:8px; }
+  .skill-chip{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:5px 9px;
+    border:1.5px solid currentColor;
+    text-transform:none;
+  }
+  .skill-chip.adv{ color:var(--hard); }
+  .skill-chip.int{ color:var(--medium); }
+  .skill-chip.fund{ color:var(--easy); }
+  .profile-badge-col{ display:flex; flex-direction:column; }
+  .badge-item{ display:flex; align-items:center; gap:12px; }
+  .badge-seal{ flex:0 0 auto; display:flex; }
+  .badge-item span{ font-size:12px; font-weight:700; letter-spacing:0.04em; }
+  .profile-avatar img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* ===== ENHANCEMENT: PROGRESS PANEL (LEETCODE-STYLE) ===== */
+  .progress-panel{ max-width:1180px; margin:0 auto 34px; padding:0 28px; }
+  .progress-sheet-label{
+    font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--wire); margin-bottom:18px;
+  }
+  .progress-top{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:32px;
+    align-items:center;
+  }
+  .gauge-block{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+  .gauge{
+    width:150px; height:150px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    background:conic-gradient(var(--easy) 0deg 96deg, var(--medium) 96deg 273deg, var(--hard) 273deg 360deg);
+    padding:9px;
+  }
+  .gauge-center{
+    width:100%; height:100%;
+    border-radius:50%;
+    background:var(--paper);
+    border:3px solid var(--ink);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .gauge-frac{ font-family:'Anton', sans-serif; font-size:15px; color:var(--wire); }
+  .gauge-frac b{ font-size:30px; color:var(--ink); }
+  .gauge-lbl{ font-size:11px; font-weight:700; color:var(--easy); letter-spacing:0.04em; margin-top:4px; }
+  .gauge-attempt{ font-size:11px; color:var(--wire); letter-spacing:0.06em; text-transform:uppercase; font-weight:700; }
+
+  .diff-box-col{ display:flex; flex-direction:column; gap:10px; min-width:150px; }
+  .diff-box{
+    border:2px solid var(--dc);
+    background:var(--concrete);
+    padding:9px 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .diff-box-name{ font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--dc); }
+  .diff-box-frac{ font-size:13px; font-weight:700; }
+
+  .badges-block{ display:flex; flex-direction:column; gap:12px; min-width:220px; }
+  .badges-head{ display:flex; align-items:center; justify-content:space-between; }
+  .badges-arrow{
+    color:var(--ink); text-decoration:none; font-weight:700; font-size:16px;
+    border:2px solid var(--ink); width:26px; height:26px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .badges-arrow:hover{ background:var(--ink); color:var(--paper); }
+  .badges-count{ font-size:32px; line-height:1; }
+  .badge-item-text{ display:flex; flex-direction:column; gap:2px; }
+  .badge-item-sub{ font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--wire); font-weight:700; }
+
+  .heatmap-head{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size:12.5px; margin-bottom:14px;
+  }
+  .heatmap-meta{ color:var(--wire); font-size:11.5px; }
+  .heatmap-scroll{ overflow-x:auto; padding-bottom:6px; }
+  .heatmap{ display:flex; gap:11px; min-width:720px; }
+  .hm-month{ display:flex; flex-direction:column; gap:3px; align-items:center; }
+  .hm-grid{ display:grid; grid-template-rows:repeat(7, 9px); grid-auto-flow:column; gap:3px; }
+  .hm-cell{ width:9px; height:9px; background:var(--concrete-dark); border:1px solid rgba(17,17,17,0.08); }
+  .hm-cell.l1{ background:#cfe8d8; border-color:transparent; }
+  .hm-cell.l2{ background:#8fca9f; border-color:transparent; }
+  .hm-cell.l3{ background:var(--easy); border-color:transparent; }
+  .hm-label{ font-size:10px; color:var(--wire); font-weight:700; letter-spacing:0.04em; margin-top:4px; }
+  .heatmap-note{ margin-top:14px; font-size:10.5px; color:var(--wire); letter-spacing:0.02em; }
+
+  @media (max-width:760px){
+    .progress-top{ grid-template-columns:1fr; justify-items:center; }
+    .diff-box-col{ width:100%; max-width:280px; }
+    .badges-block{ width:100%; max-width:280px; }
+  }
+
+  @media (max-width:640px){
+    .profile-head{ flex-direction:column; align-items:flex-start; }
+    .profile-link{ width:100%; justify-content:center; }
+  }
+
+  /* ===== ENHANCEMENT: SPLIT TEXT HERO ===== */
+  .split-char{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(0.6em) rotate(3deg);
+    animation:charIn .6s cubic-bezier(.2,1,.3,1) forwards;
+  }
+  @keyframes charIn{
+    to{ opacity:1; transform:translateY(0) rotate(0); }
+  }
+
+  /* ===== ENHANCEMENT: SPOTLIGHT CARD ===== */
+  .card{ position:relative; overflow:hidden; }
+  .card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(243,195,0,0.38), transparent 65%);
+    opacity:0;
+    transition:opacity .25s ease;
+    pointer-events:none;
+    z-index:0;
+  }
+  .card:hover::before{ opacity:1; }
+  .card > *{ position:relative; z-index:1; }
+
+  /* ===== ENHANCEMENT: GRID STAGGER ENTRANCE ===== */
+  .card{ animation:cardRise .5s cubic-bezier(.2,1,.3,1) both; }
+  @keyframes cardRise{
+    from{ opacity:0; transform:translateY(20px) scale(.98); }
+    to{ opacity:1; transform:translateY(0) scale(1); }
+  }
+
+  /* ===== ENHANCEMENT: MAGNET BUTTONS ===== */
+  .action-btn, .chip, .stat.clickable{ transition:transform .18s cubic-bezier(.2,1,.3,1), background .1s ease; will-change:transform; }
+
+  /* ===== ENHANCEMENT: CLICK SPARK ===== */
+  .spark-container{ position:fixed; inset:0; pointer-events:none; z-index:300; }
+  .spark{
+    position:absolute;
+    width:3px; height:12px;
+    margin:-6px 0 0 -1.5px;
+    background:var(--ink);
+    animation:sparkFly .45s ease-out forwards;
+  }
+  @keyframes sparkFly{
+    0%{ transform:var(--spark-rot) translateY(0) scaleY(1); opacity:1; }
+    100%{ transform:var(--spark-rot) translateY(-34px) scaleY(.3); opacity:0; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     *{ transition:none !important; animation:none !important; }
     .ticker-track{ animation:none; }
+    .split-char{ opacity:1 !important; transform:none !important; }
+    .card{ opacity:1 !important; transform:none !important; }
   }
 </style>
 </head>
 <body>
 
+<div class="grain-overlay"></div>
 <div class="hazard-strip"></div>
 <div class="ticker-bar">
   <div class="ticker-track" id="tickerTrack"></div>
@@ -790,6 +1059,97 @@
     Filed under: Python · C++ · C — Arrays, Strings, Two Pointers, DP, Graphs and more.
   </div>
 </header>
+
+<section class="profile-panel">
+  <div class="profile-inner">
+    <div class="profile-head">
+      <div class="profile-avatar"><img src="https://i.pinimg.com/1200x/0c/ec/13/0cec13e5dc7cfd5b0084e7733523525a.jpg" alt="Hariharasudhan A" loading="lazy"></div>
+      <div class="profile-id">
+        <div class="profile-name display">Hariharasudhan A</div>
+        <div class="profile-handle">
+          <a href="https://leetcode.com/u/Hariharasudhan295/" target="_blank" rel="noopener">leetcode.com/u/Hariharasudhan295</a>
+          <span class="profile-rank">Rank #1,529,411</span>
+          <span class="profile-rank">Data Navigator Badge</span>
+        </div>
+      </div>
+      <a class="action-btn ghost profile-link" href="https://leetcode.com/u/Hariharasudhan295/" target="_blank" rel="noopener">View LeetCode Profile →</a>
+    </div>
+    <div class="divider-row"></div>
+    <div class="profile-body">
+      <div class="profile-col">
+        <div class="profile-label">Problems Solved by Language</div>
+        <div class="lang-bar"><span class="lang-bar-name">C++</span><div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%"></div></div><span class="lang-bar-num">65</span></div>
+        <div class="lang-bar"><span class="lang-bar-name">Python</span><div class="lang-bar-track"><div class="lang-bar-fill" style="width:37%"></div></div><span class="lang-bar-num">24</span></div>
+        <div class="lang-bar"><span class="lang-bar-name">MySQL</span><div class="lang-bar-track"><div class="lang-bar-fill" style="width:29%"></div></div><span class="lang-bar-num">19</span></div>
+      </div>
+      <div class="profile-col">
+        <div class="profile-label">Top Skill Tags</div>
+        <div class="chip-group profile-skills">
+          <span class="skill-chip adv">Dynamic Programming ×13</span>
+          <span class="skill-chip adv">Game Theory ×5</span>
+          <span class="skill-chip adv">Backtracking ×5</span>
+          <span class="skill-chip int">Math ×26</span>
+          <span class="skill-chip int">Hash Table ×22</span>
+          <span class="skill-chip int">Database ×19</span>
+          <span class="skill-chip fund">Array ×44</span>
+          <span class="skill-chip fund">String ×34</span>
+          <span class="skill-chip fund">Sorting ×22</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="progress-panel">
+  <div class="profile-inner">
+    <div class="progress-sheet-label">Progress Sheet — LeetCode Solved Record</div>
+    <div class="progress-top">
+      <div class="gauge-block">
+        <div class="gauge" id="lcGauge">
+          <div class="gauge-center">
+            <span class="gauge-frac"><b>108</b>/4023</span>
+            <span class="gauge-lbl">✓ Solved</span>
+          </div>
+        </div>
+        <div class="gauge-attempt">0 Attempting</div>
+      </div>
+      <div class="diff-box-col">
+        <div class="diff-box" style="--dc:var(--easy)"><span class="diff-box-name">Easy</span><span class="diff-box-frac">47/959</span></div>
+        <div class="diff-box" style="--dc:var(--medium)"><span class="diff-box-name">Med.</span><span class="diff-box-frac">43/2101</span></div>
+        <div class="diff-box" style="--dc:var(--hard)"><span class="diff-box-name">Hard</span><span class="diff-box-frac">18/963</span></div>
+      </div>
+      <div class="badges-block">
+        <div class="badges-head">
+          <span class="profile-label" style="margin:0;">Badges</span>
+          <a href="https://leetcode.com/u/Hariharasudhan295/" target="_blank" rel="noopener" class="badges-arrow" aria-label="View badges">→</a>
+        </div>
+        <div class="badges-count display">1</div>
+        <div class="badge-item">
+          <div class="badge-seal">
+            <svg viewBox="0 0 64 64" width="42" height="42" aria-hidden="true">
+              <circle cx="32" cy="32" r="29" fill="var(--paper)" stroke="var(--ink)" stroke-width="3"/>
+              <circle cx="32" cy="32" r="22" fill="none" stroke="var(--hazard)" stroke-width="2" stroke-dasharray="3.5 3"/>
+              <path d="M32 15 L36.2 27 L49 27 L38.6 34.5 L42.6 46.5 L32 39 L21.4 46.5 L25.4 34.5 L15 27 L27.8 27 Z" fill="var(--ink)"/>
+            </svg>
+          </div>
+          <div class="badge-item-text">
+            <span class="badge-item-sub">Most Recent Badge</span>
+            <span>Data Navigator Badge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider-row"></div>
+    <div class="heatmap-head">
+      <span><b id="hmTotal">244</b> submissions in the past one year</span>
+      <span class="heatmap-meta">Total active days: <b>45</b> &nbsp;·&nbsp; Max streak: <b>28</b></span>
+    </div>
+    <div class="heatmap-scroll">
+      <div class="heatmap" id="submissionHeatmap"></div>
+    </div>
+    <div class="heatmap-note">Illustrative activity pattern based on recent submission history — LeetCode doesn't expose exact daily data without sign-in.</div>
+  </div>
+</section>
 
 <div class="stat-deck" id="statDeck"></div>
 
@@ -824,8 +1184,8 @@
 </div>
 
 <footer>
-  <span>© Case File Archive — for personal revision use.</span>
-  <span>Data sourced live from <a href="https://github.com/hariharasudhan-29507/LEETCODE" target="_blank" rel="noopener">hariharasudhan-29507/LEETCODE</a></span>
+  <span>My leetcode archive </span>
+  <a href="mailto:sudanayyappan_bcs28@mepcoeng.ac.in">contact me : sudanayyappan_bcs28@mepcoeng.ac.in</a>
 </footer>
 
 <div class="overlay" id="overlay">
@@ -871,6 +1231,63 @@
 <script id="data" type="application/json">[{"num":338,"lang":"C","difficulty":"Easy","variant":null,"ext":"c","code":"int* countBits(int n, int* returnSize) {\n    \n    *returnSize = n + 1;\n    int *result = malloc((n + 1) * sizeof(int));\n    for (int i = 0; i <= n; i++) {\n        int temp = i;\n        int count = 0;\n\n        while (temp > 0) {\n            count += temp % 2;\n            temp /= 2;\n        }\n\n        result[i] = count;\n    }\n\n    return result;\n}\n","path":"Codes/C/Easy/338.CountingBits.c","title":"Counting Bits","id":1,"desc":"For every number from 0 to n, count how many 1 bits appear in its binary representation.","examples":[{"input":"n = 2","output":"[0,1,1]"},{"input":"n = 5","output":"[0,1,1,2,1,2]"}]},{"num":476,"lang":"C","difficulty":"Easy","variant":null,"ext":"c","code":"class Solution {\npublic:\n    void reverse(char* bin){\n        int start = 0;\n        int end = strlen(bin) - 1;\n        char  temp;\n        while (start < end) {\n            temp = bin[start];\n            bin[start] = bin[end];\n            bin[end] = temp;\n            start++;\n            end--;\n        }\n    }\n\n    void ToBinaryString(int num, char* bin_str) {\n        int len;\n        if (num == 0) {\n            strcpy(bin_str, \"0\");\n            return;\n        }\n        len = 0;\n        while (num > 0) {\n            bin_str[len++] = (num % 2) + '0';\n            num /= 2;\n        }\n        bin_str[len] = '\\0';\n        reverse(bin_str);\n    }\n\n    int ToNumFromString(char* bin_str) {\n        int res = 0;\n        int len = strlen(bin_str);\n        int i;                              \n        for (i = 0; i < len; i++) {\n            res = res * 2 + (bin_str[i] - '0');\n        }\n        return res;\n    }\n\n    int findComplement(int num) {\n        char bin_str[64];\n        int len;\n        char comp_str[64];\n        int i;                              \n   \n        ToBinaryString(num, bin_str);\n   \n        len = strlen(bin_str);\n        for (i = 0; i < len; i++) {\n            if (bin_str[i] == '1') {\n                comp_str[i] = '0';\n            } else {\n                comp_str[i] = '1';\n            }\n        }\n        comp_str[len] = '\\0';\n   \n        return ToNumFromString(comp_str);\n        }\n\n};\n","path":"Codes/C/Easy/476.NumberComplement.c","title":"Number Complement","id":2,"desc":"Given a positive integer, flip all its binary bits and return the resulting integer (the complement, within the number's own bit-length).","examples":[{"input":"num = 5","output":"2","note":"101 flips to 010"},{"input":"num = 1","output":"0"}]},{"num":13,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int romanToInt(string s) {\n        unordered_map<char,int> numeral_set ={\n            {'I', 1},\n            {'V', 5},\n            {'X', 10},\n            {'L', 50},\n            {'C', 100},\n            {'D', 500},\n            {'M', 1000} \n    };\n\n        int len = s.length();\n        int sum = 0;\n        for(int i = 0 ; i<len;i++){\n            if(i+1 < len && numeral_set[s[i]]<numeral_set[s[i+1]]){\n                sum -= numeral_set[s[i]];\n            }\n            else{\n                sum += numeral_set[s[i]];\n            }\n        }\n        return sum;\n    }\n};\n","path":"Codes/C++/Easy/13.RomanToInteger.cpp","title":"Roman to Integer","id":3,"desc":"Convert a Roman numeral string into its integer value.","examples":[{"input":"s = \"III\"","output":"3"},{"input":"s = \"LVIII\"","output":"58","note":"L=50, V=5, III=3"},{"input":"s = \"MCMXCIV\"","output":"1994"}]},{"num":67,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    string addBinary(string a, string b) {\n        int len1 = a.size() - 1;\n        int len2 = b.size() - 1;\n        int carry = 0;\n        string res = \"\";\n\n        while (len1 >= 0 || len2 >= 0 || carry) {\n            int sum = carry;\n\n            if (len1 >= 0){\n                sum += a[len1--] - '0';\n            }\n            if (len2 >= 0){\n                sum += b[len2--] - '0';\n            }\n            \n           res = char(sum % 2 + '0') + res;\n            carry = sum / 2;\n        }\n\n     \n        return res;\n    }\n};\n","path":"Codes/C++/Easy/67.AddBinary.cpp","title":"Add Binary","id":4,"desc":"Add two binary strings and return their sum, also formatted as a binary string.","examples":[{"input":"a = \"11\", b = \"1\"","output":"\"100\""}]},{"num":88,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    string addBinary(string a, string b) {\n        int len1 = a.size() - 1;\n        int len2 = b.size() - 1;\n        int carry = 0;\n        string res = \"\";\n\n        while (len1 >= 0 || len2 >= 0 || carry) {\n            int sum = carry;\n\n            if (len1 >= 0){\n                sum += a[len1--] - '0';\n            }\n            if (len2 >= 0){\n                sum += b[len2--] - '0';\n            }\n            \n           res = char(sum % 2 + '0') + res;\n            carry = sum / 2;\n        }\n\n     \n        return res;\n    }\n};\n","path":"Codes/C++/Easy/88.MergeSortedArray.cpp","title":"Merge Sorted Array","id":5,"desc":"Merge a second sorted array into the first sorted array in place. The first array has enough trailing zero-space to hold both.","examples":[{"input":"nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3","output":"[1,2,2,3,5,6]"}]},{"num":628,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int maximumProduct(vector<int>& nums) {\n        sort(nums.begin(), nums.end());\n\n        int sum1 , sum2 ,len = nums.size() -1  ;\n        sum1 = nums.at(len) * nums.at(len-1) * nums.at(len-2);\n        sum2 = nums.at(0) * nums.at(1) * nums.at(len);\n\n        if(sum1 > sum2){\n            return sum1;\n        }\n        else{\n            return sum2;\n        }\n    }\n};\n","path":"Codes/C++/Easy/628.MaximumProductofThree.cpp","title":"Maximum Product of Three Numbers","id":6,"desc":"Find the largest product obtainable by multiplying any three numbers from the array (negative numbers can flip the sign advantageously).","examples":[{"input":"nums = [1,2,3]","output":"6"},{"input":"nums = [1,2,3,4]","output":"24"}]},{"num":693,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    bool hasAlternatingBits(int n) {\n        \n        string binary = \"\";\n        while(n>0){\n            binary = char((n%2) + '0') + binary;\n            n/=2;\n        }\n        bool res = true;\n\n        for(int i = 1; i< binary.length();i++){\n            if(binary[i]==binary[i-1] ){\n                return false;\n            }\n        }\n        return res;\n    }\n};\n","path":"Codes/C++/Easy/693.BinaryNumberwithAlternateBits.cpp","title":"Binary Number with Alternating Bits","id":7,"desc":"Check whether the binary representation of a number strictly alternates between 0 and 1.","examples":[{"input":"n = 5","output":"true","note":"binary 101"},{"input":"n = 7","output":"false","note":"binary 111"}]},{"num":1260,"lang":"C++","difficulty":"Easy","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<vector<int>> shiftGrid(vector<vector<int>>& grid, int k) {\n        int m = grid.size();           \n        int n = (m > 0) ? grid[0].size() : 0;\n        \n        if (m == 0 || n == 0) return grid;\n\n        k = k % (m * n);\n        if (k == 0) return grid;\n\n        for (int iterator = 0; iterator < k; iterator++) {\n            int last_element = grid[m - 1][n - 1];\n            \n            for (int i = m - 1; i >= 0; i--) {\n                for (int j = n - 1; j >= 0; j--) {\n                \n                    if (j > 0) {\n                        grid[i][j] = grid[i][j - 1];\n                    }\n                    else if (i > 0) {\n                        grid[i][0] = grid[i - 1][n - 1];\n                    }\n                    else {\n                        grid[0][0] = last_element;\n                    }\n                }\n            }\n        }\n        return grid;\n    }\n};\n","path":"Codes/C++/Easy/1260.Shift2DGrid.cpp","title":"Shift 2D Grid","id":8,"desc":"Shift every value in a 2D grid k positions to the right, wrapping to the next row at the end of each row and wrapping to the top-left at the end of the grid.","examples":[{"input":"grid = [[1,2,3],[4,5,6],[7,8,9]], k = 1","output":"[[9,1,2],[3,4,5],[6,7,8]]"}]},{"num":4,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n\n    static double median(vector<int> &arr , int num1 , int num2){\n        int sum = num1 + num2;\n\n        if (sum % 2 ==1){\n            return arr[sum/2];\n        }\n        else{\n            return ((arr[sum/2 -1 ] + arr[sum / 2])/2.00);\n        }\n    }\n    static void merge(vector<int> &arr , int left , int right , int mid){\n\n        vector <int> temp_arr;\n        int i = left , j = mid + 1;\n\n        while(i <= mid && j<= right){\n            if (arr[i] <= arr[j]){\n                temp_arr.push_back(arr[i++]);\n            }\n            else{\n                temp_arr.push_back(arr[j++]);\n            }\n        }\n\n        while(i <= mid){\n            temp_arr.push_back(arr[i++]);\n        }\n\n        while(j <= right ){\n            temp_arr.push_back(arr[j++]);\n        }\n\n        for(int k = left ; k <= right ; k++){\n\n            arr[k] = temp_arr[k - left];\n        }\n    }\n\n    static void mergesort(vector<int> &arr , int left , int right){\n        if(left >= right){\n            return;\n        }\n\n        int mid = (left + right)/2;\n\n        mergesort(arr, left , mid);\n        mergesort(arr, mid+1,right);\n        merge(arr , left , right , mid);\n    }\n        \n    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {\n        int size1 = nums1.size();\n        int size2 = nums2.size();\n\n        vector<int> arr;\n        arr.reserve(size1+size2);\n\n        for(int val : nums1 ){\n            arr.push_back(val);\n        }\n\n        for(int val : nums2 ){\n            arr.push_back(val);\n        }\n\n        if(size1 > 0 && size2 > 0){\n            merge(arr , 0 , size1+size2-1 , size1-1);\n        }\n\n        return median(arr , size1 , size2);\n    }\n\n};\n","path":"Codes/C++/Hard/4.MedianOfTwoSortedArray.cpp","title":"Median of Two Sorted Arrays","id":9,"desc":"Find the median of two sorted arrays combined into one logical sorted sequence, ideally in O(log(m+n)) time.","examples":[{"input":"nums1 = [1,3], nums2 = [2]","output":"2.0"},{"input":"nums1 = [1,2], nums2 = [3,4]","output":"2.5"}]},{"num":30,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<int> findSubstring(string s, vector<string>& words) {\n        if (words.empty() || s.empty()) return {};\n        \n        int n = s.size();\n        int wordLen = words[0].size();\n        int totalLen = wordLen * words.size();\n        if (totalLen > n) return {};\n        \n        unordered_map<string, int> targetFreq;\n        for (string& w : words) {\n            targetFreq[w]++;\n        }\n        \n        vector<int> res;\n        \n        for (int start = 0; start < wordLen; start++) {\n            unordered_map<string, int> windowFreq;\n            int left = start;\n            int count = 0;\n            \n            for (int right = start; right + wordLen <= n; right += wordLen) {\n                string word = s.substr(right, wordLen);\n                \n                if (targetFreq.count(word)) {\n                    windowFreq[word]++;\n                    if (windowFreq[word] <= targetFreq[word]) {\n                        count++;\n                    } else {\n                        while (windowFreq[word] > targetFreq[word]) {\n                            string leftWord = s.substr(left, wordLen);\n                            windowFreq[leftWord]--;\n                            if (windowFreq[leftWord] < targetFreq[leftWord]) {\n                                count--;\n                            }\n                            left += wordLen;\n                        }\n                    }\n                    \n                    if (count == words.size()) {\n                        res.push_back(left);\n                        string leftWord = s.substr(left, wordLen);\n                        windowFreq[leftWord]--;\n                        count--;\n                        left += wordLen;\n                    }\n                } else {\n                    windowFreq.clear();\n                    count = 0;\n                    left = right + wordLen;\n                }\n            }\n        }\n        \n        return res;\n    }\n};\n","path":"Codes/C++/Hard/30.SubstringConcatenationofAllWords.cpp","title":"Substring Concatenation of All Words","id":10,"desc":"Given a string and a list of equal-length words, find every starting index where a substring is exactly a concatenation of all the words, each used exactly once, in any order.","examples":[{"input":"s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]","output":"[0,9]","note":"\"barfoo\" at 0 and \"foobar\" at 9 are both permutations of the words"}]},{"num":126,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string>& wordList) {\n        unordered_set<string> dict(wordList.begin(), wordList.end());\n        if (!dict.count(endWord)) return {};\n        dict.insert(beginWord);\n        \n        unordered_map<string, int> dist;\n        queue<string> q;\n        q.push(endWord);\n        dist[endWord] = 0;\n        \n        while (!q.empty()) {\n            string word = q.front();\n            q.pop();\n            for (int i = 0; i < word.syize(); i++) {\n                string pattern = word;\n                for (char c = 'a'; c <= 'z'; c++) {\n                    if (c == word[i]) continue;\n                    pattern[i] = c;\n                    if (dict.count(pattern) && !dist.count(pattern)) {\n                        dist[pattern] = dist[word] + 1;\n                        q.push(pattern);\n                    }\n                }\n            }\n        }\n        \n        if (!dist.count(beginWord)) return {};\n        \n        vector<vector<string>> res;\n        vector<string> path{beginWord};\n        dfs(beginWord, endWord, dict, dist, path, res);\n        return res;\n    }\n    \n    void dfs(string& cur, string& endWord, unordered_set<string>& dict,\n             unordered_map<string, int>& dist, vector<string>& path,\n             vector<vector<string>>& res) {\n        if (cur == endWord) {\n            res.push_back(path);\n            return;\n        }\n        for (int i = 0; i < cur.size(); i++) {\n            string next = cur;\n            for (char c = 'a'; c <= 'z'; c++) {\n                if (c == cur[i]) continue;\n                next[i] = c;\n                if (dict.count(next) && dist.count(next) && dist[next] == dist[cur] - 1) {\n                    path.push_back(next);\n                    dfs(next, endWord, dict, dist, path, res);\n                    path.pop_back();\n                }\n            }\n        }\n    }\n};\n","path":"Codes/C++/Hard/126.WordLadderII.cpp","title":"Word Ladder II","id":11,"desc":"Find every shortest transformation sequence from a begin word to an end word, changing exactly one letter at a time and passing only through words in the given list.","examples":[{"input":"beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]","output":"[[\"hit\",\"hot\",\"dot\",\"dog\",\"cog\"],[\"hit\",\"hot\",\"lot\",\"log\",\"cog\"]]"}]},{"num":218,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {\n        vector<pair<int, int>> events;\n        for (auto& b : buildings) {\n            int left = b[0], right = b[1], height = b[2];\n            events.push_back({left, -height});\n            events.push_back({right, height});\n        }\n        \n        sort(events.begin(), events.end(), [](const pair<int, int>& a, const pair<int, int>& b) {\n            if (a.first != b.first) return a.first < b.first;\n            return a.second < b.second;\n        });\n        \n        priority_queue<pair<int, int>> pq;\n        pq.push({0, INT_MAX});\n        \n        vector<vector<int>> res;\n        int prevMax = 0;\n        \n        for (auto& e : events) {\n            int x = e.first;\n            int h = e.second;\n            \n            if (h < 0) {\n                h = -h;\n                int right = -1;\n                for (auto& b : buildings) {\n                    if (b[0] == x && b[2] == h) {\n                        right = b[1];\n                        break;\n                    }\n                }\n                pq.push({h, right});\n            }\n            \n            while (!pq.empty() && pq.top().second <= x) {\n                pq.pop();\n            }\n            \n            int currMax = pq.top().first;\n            if (currMax != prevMax) {\n                res.push_back({x, currMax});\n                prevMax = currMax;\n            }\n        }\n        \n        return res;\n    }\n};\n","path":"Codes/C++/Hard/218.SkylineProblem.cpp","title":"The Skyline Problem","id":12,"desc":"Given the outlines of several buildings (left edge, right edge, height), compute the skyline they form together as a series of key [x, height] points.","examples":[{"input":"buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]","output":"[[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]"}]},{"num":295,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class MedianFinder {\npublic:\n    priority_queue<int> left;\n    priority_queue<int, vector<int>, greater<int>> right;\n\n\n    void addNum(int num) {\n        if (left.empty() || num <= left.top())\n            left.push(num);\n        else\n            right.push(num);\n\n        if (left.size() > right.size() + 1) {\n            right.push(left.top());\n            left.pop();\n        }\n        else if (right.size() > left.size()) {\n            left.push(right.top());\n            right.pop();\n        }\n    }\n\n    double findMedian() {\n        if (left.size() == right.size())\n            return (left.top() + right.top()) / 2.0;\n\n        return left.top();\n    }\n};\n","path":"Codes/C++/Hard/295.FindMedianFromDataStream.cpp","title":"Find Median from Data Stream","id":13,"desc":"Design a structure that supports adding numbers one at a time from a stream, and can report the median of all numbers seen so far at any point.","examples":[{"input":"addNum(1); addNum(2); findMedian()","output":"1.5"},{"input":"addNum(3); findMedian()","output":"2"}]},{"num":321,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<int> pickMaxDigits(vector<int>& numbers, int k) {\n        vector<int> select;\n        int removeCount = numbers.size() - k;\n        for (int i = 0; i < numbers.size(); i++) {\n            while (removeCount > 0 && !select.empty() && select.back() < numbers[i]) {\n                select.pop_back();\n                removeCount--;\n            }\n            select.push_back(numbers[i]);\n        }\n        select.resize(k);\n        return select;\n    }\n    bool isFirstBigger(vector<int>& first, int i, vector<int>& second, int j) {\n        while (i < first.size() && j < second.size()) {\n            if (first[i] != second[j]) {\n                return first[i] > second[j];\n            }\n            i++;\n            j++;\n        }\n        return i < first.size();\n    }\n    vector<int> mergeTwoLists(vector<int>& first, vector<int>& second) {\n        vector<int> res;\n        int i = 0;\n        int j = 0;\n        while (i < first.size() || j < second.size()) {\n            if (isFirstBigger(first, i, second, j)) {\n                res.push_back(first[i]);\n                i++;\n            } else {\n                res.push_back(second[j]);\n                j++;\n            }\n        }\n        return res;\n    }\n    vector<int> maxNumber(vector<int>& nums1, vector<int>& nums2, int k) {\n        int size1 = nums1.size();\n        int size2 = nums2.size();\n        vector<int> res(k, 0);\n        int start = max(0, k - size2);\n        int end = min(k, size1);\n        for (int take1 = start; take1 <= end; take1++) {\n            int take2 = k - take1;\n            vector<int> part1 = pickMaxDigits(nums1, take1);\n            vector<int> part2 = pickMaxDigits(nums2, take2);\n            vector<int> candidate = mergeTwoLists(part1, part2);\n            if (candidate > res) {\n                res = candidate;\n            }\n        }\n        return res;\n    }\n};\n","path":"Codes/C++/Hard/321.CreateMaximumNumber.cpp","title":"Create Maximum Number","id":14,"desc":"Given two arrays of single digits, pick a total of k digits across both \u2014 preserving each array's internal order \u2014 to form the largest possible k-digit number.","examples":[{"input":"nums1 = [3,4,6,5], nums2 = [9,1,2,5,8,3], k = 5","output":"[9,8,6,5,3]"}]},{"num":466,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int getMaxRepetitions(string s1, int n1, string s2, int n2) {\n        int len1 = s1.size(), len2 = s2.size();\n        if (len1 == 0 || len2 == 0 || n1 == 0 || n2 == 0) return 0;\n        \n        vector<int> repeatCnt(n1 + 1, 0);\n        vector<int> nextIdx(n1 + 1, 0);\n        unordered_map<int, int> posMap; \n        \n        int j = 0, cnt = 0;\n        for (int k = 1; k <= n1; k++) {\n            for (int i = 0; i < len1; i++) {\n                if (s1[i] == s2[j]) {\n                    j++;\n                    if (j == len2) {\n                        j = 0;\n                        cnt++;\n                    }\n                }\n            }\n            repeatCnt[k] = cnt;\n            nextIdx[k] = j;\n            \n            if (posMap.count(j)) {\n                int start = posMap[j];\n                int interval = k - start;\n                int repeats = (n1 - start) / interval;\n                int patternCnt = (repeatCnt[k] - repeatCnt[start]) * repeats;\n                int remainCnt = repeatCnt[start + (n1 - start) % interval];\n                return (patternCnt + remainCnt) / n2;\n            } else {\n                posMap[j] = k;\n            }\n        }\n        \n        return repeatCnt[n1] / n2;\n    }\n};\n","path":"Codes/C++/Hard/466.CountTheRepetition.cpp","title":"Count the Repetitions","id":15,"desc":"Given strings built by repeating s1 n1 times and s2 n2 times, find the largest m such that s2 repeated m times can be obtained as a subsequence of s1 repeated n1 times.","examples":[{"input":"s1 = \"acb\", n1 = 4, s2 = \"ab\", n2 = 2","output":"2"}]},{"num":472,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<string> findAllConcatenatedWordsInADict(vector<string>& words) {\n        sort(words.begin(), words.end(), [](const string& a, const string& b) {\n            return a.size() < b.size();\n        });\n        \n        unordered_set<string> dict;\n        vector<string> ans;\n        \n        for (string& w : words) {\n            if (w.empty()) continue;\n            \n            int n = w.size();\n            vector<bool> dp(n + 1, false);\n            dp[0] = true;\n            \n            for (int i = 1; i <= n; i++) {\n                for (int j = 0; j < i; j++) {\n                    if (dp[j] && dict.count(w.substr(j, i - j))) {\n                        dp[i] = true;\n                        break;\n                    }\n                }\n            }\n            \n            if (dp[n]) {\n                ans.push_back(w);\n            }\n            dict.insert(w);\n        }\n        \n        return ans;\n    }\n};\n","path":"Codes/C++/Hard/472.ConcatenatedWords.cpp","title":"Concatenated Words","id":16,"desc":"From a list of words, find every word that can be built entirely by concatenating at least two shorter words from the same list.","examples":[{"input":"words = [\"cat\",\"cats\",\"catsdogcats\",\"dog\",\"dogcatsdog\",\"hippopotamuses\",\"rat\",\"ratcatdogcat\"]","output":"[\"catsdogcats\",\"dogcatsdog\",\"ratcatdogcat\"]"}]},{"num":1406,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int n;\n    vector<int> t;\n    int solve(vector<int>& stones , int i){\n\n        if(i>=n){ return 0;}\n\n        if(t[i] != -1){\n            return t[i];\n        }\n        int res = stones[i] - solve(stones, i+1);\n        if(i+1 < n){\n            res = max(res , stones[i]+stones[i+1] - solve(stones ,i+2));\n        }\n        if(i+2 < n){\n            res = max(res , stones[i]+stones[i+1]+stones[i+2]- solve(stones ,i+3));\n        }\n\n        return t[i] =res;\n    }\n    string stoneGameIII(vector<int>& stoneValue) {\n        n = stoneValue.size();\n\n        t.resize(n+1, -1);\n        int diff = solve(stoneValue,0);\n        if(diff < 0) return \"Bob\";\n        else if (diff > 0) return \"Alice\";\n        else return \"Tie\";\n    }\n};\n","path":"Codes/C++/Hard/1406.StoneGameIII.cpp","title":"Stone Game III","id":17,"desc":"Two players alternately take 1, 2, or 3 stones from the front of a row of valued stones, both trying to maximize their own score. Assuming optimal play, decide who wins.","examples":[{"input":"stoneValue = [1,2,3,7]","output":"\"Bob\"","note":"Alice's best line still leaves Bob with the higher score"}]},{"num":null,"lang":"C++","difficulty":"Hard","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {\n        unordered_set<string> dict(wordList.begin(), wordList.end());\n        if (!dict.count(endWord)) return 0;\n        \n        queue<string> q;\n        q.push(beginWord);\n        int steps = 1;\n        \n        while (!q.empty()) {\n            int size = q.size();\n            for (int i = 0; i < size; i++) {\n                string word = q.front();\n                q.pop();\n                \n                if (word == endWord) return steps;\n                \n                for (int j = 0; j < word.size(); j++) {\n                    char original = word[j];\n                    for (char c = 'a'; c <= 'z'; c++) {\n                        if (c == original) continue;\n                        word[j] = c;\n                        if (dict.count(word)) {\n                            q.push(word);\n                            dict.erase(word);\n                        }\n                    }\n                    word[j] = original;\n                }\n            }\n            steps++;\n        }\n        \n        return 0;\n    }\n};\n","path":"Codes/C++/Hard/WordLadder.cpp","title":"Word Ladder","id":18,"desc":"Find the length of the shortest transformation sequence from a begin word to an end word, changing exactly one letter at a time through words in a given list.","examples":[{"input":"beginWord = \"hit\", endWord = \"cog\", wordList = [\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]","output":"5","note":"hit -> hot -> dot -> dog -> cog"}]},{"num":3,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n\n        vector <int> hashtable (256 , -1);\n        int n = s.length();\n        int l = 0 , r = 0 , maxlen = 0;\n\n        while (r < n){\n            if ((hashtable[s[r]] != -1) && (hashtable[s[r]] >= l)){\n                l = hashtable[s[r]] + 1;                \n            } \n            int len = r - l + 1;\n            if(maxlen < len){\n                maxlen = len ;\n            }\n            hashtable[s[r]] = r;\n            r++;\n        }\n\n        return maxlen;\n    }\n};\n","path":"Codes/C++/Medium/3.LongestSubstringWithoutRepeatingChar.cpp","title":"Longest Substring Without Repeating Characters","id":19,"desc":"Find the length of the longest substring that contains no repeating characters.","examples":[{"input":"s = \"abcabcbb\"","output":"3","note":"the answer is \"abc\""},{"input":"s = \"bbbbb\"","output":"1"}]},{"num":5,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n\n    int isPalindrome(string &s , int l , int r){\n        while(l < r){\n            if(s[l] != s[r]){\n                return 0;\n            }\n            l++;\n            r--;\n        }\n\n        return 1;\n    }\n\n    string longestPalindrome(string s) {\n\n        int n = s.length();\n        int st = 0 , maxlen = 1;\n\n        for(int i = 0 ; i < n ; i++){\n            for(int j = i ; j < n ; j++){\n\n                if(isPalindrome(s , i , j)){\n                    if(j - i + 1 > maxlen){\n                        maxlen = j - i + 1;\n                        st = i;\n                    }\n                }\n            }\n        }\n\n        return s.substr(st , maxlen);\n    }\n};\n","path":"Codes/C++/Medium/5.LongestPalindromicSubstring.cpp","title":"Longest Palindromic Substring","id":20,"desc":"Find the longest substring of a string that reads the same forwards and backwards.","examples":[{"input":"s = \"babad\"","output":"\"bab\"","note":"\"aba\" is also a valid answer"}]},{"num":7,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int reverse(int x) {\n        int rev = 0;\n\n        while (x != 0) {\n            int digit = x % 10;\n            x /= 10;\n\n            if (rev > INT_MAX / 10 || (rev == INT_MAX / 10 && digit > 7))\n                return 0;\n\n            if (rev < INT_MIN / 10 || (rev == INT_MIN / 10 && digit < -8))\n                return 0;\n\n            rev = rev * 10 + digit;\n        }\n\n        return rev;\n    }\n};\n","path":"Codes/C++/Medium/7.ReverseInteger.cpp","title":"Reverse Integer","id":21,"desc":"Reverse the digits of a 32-bit signed integer. Return 0 if the reversed value overflows the 32-bit signed range.","examples":[{"input":"x = 123","output":"321"},{"input":"x = -123","output":"-321"}]},{"num":11,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        \n        int left = 0 , right = height.size()-1 , result =0 ;\n\n        while(left <  right){\n            int width = right - left;\n            int minimum_height = min(height[left] , height[right]);\n            int area = width*minimum_height;\n            result = max(result , area);\n        \n            if(height[left] < height[right]){\n                left++;\n            }\n            else{\n                right--;\n            }\n            \n        }\n        return result;\n    }\n   \n};\n","path":"Codes/C++/Medium/11.ContainerWithMostWater.cpp","title":"Container With Most Water","id":22,"desc":"Given the heights of vertical lines on the x-axis, find two lines that together with the x-axis form the container that holds the most water.","examples":[{"input":"height = [1,8,6,2,5,4,8,3,7]","output":"49"}]},{"num":61,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    ListNode* rotateRight(ListNode* head, int k) {\n        if (!head || !head->next) return head; \n\n        ListNode *ptr1, *ptr2, *newhead, *tail, *curr;\n        int len = 1; \n\n        \n        curr = head;\n        while (curr->next != nullptr) {\n            len++;\n            curr = curr->next;\n        }\n        tail = curr; \n\n        k = k % len;\n        if (k == 0) return head; \n        curr = head;\n        ptr1 = head;\n        for (int i = 0; i < k; i++) {\n            ptr1 = ptr1->next;\n        }\n\n        ptr2 = head;\n        while (ptr1 != tail) { \n            ptr1 = ptr1->next;\n            ptr2 = ptr2->next;\n        }\n        newhead = ptr2->next;\n        ptr2->next = nullptr;\n        ptr1->next = head;\n        head = newhead;\n\n        return head;\n    }\n};\n","path":"Codes/C++/Medium/61.RotateList.cpp","title":"Rotate List","id":23,"desc":"Rotate a linked list to the right by k places.","examples":[{"input":"head = [1,2,3,4,5], k = 2","output":"[4,5,1,2,3]"}]},{"num":438,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    vector<int> findAnagrams(string s, string p) {\n        int m = s.size(), n = p.size();\n        vector<int> ans;\n        if (m < n) {\n            return ans;\n        }\n        vector<int> cnt1(26);\n        for (char& c : p) {\n            ++cnt1[c - 'a'];\n        }\n        vector<int> cnt2(26);\n        for (int i = 0; i < n - 1; ++i) {\n            ++cnt2[s[i] - 'a'];\n        }\n        for (int i = n - 1; i < m; ++i) {\n            ++cnt2[s[i] - 'a'];\n            if (cnt1 == cnt2) {\n                ans.push_back(i - n + 1);\n            }\n            --cnt2[s[i - n + 1] - 'a'];\n        }\n        return ans;\n    }\n};\n","path":"Codes/C++/Medium/438.FIndAllAnagaramInaString.cpp","title":"Find All Anagrams in a String","id":24,"desc":"Find every starting index in a string where a substring is an anagram of a given pattern.","examples":[{"input":"s = \"cbaebabacd\", p = \"abc\"","output":"[0,6]","note":"\"cba\" at 0 and \"bac\" at 6 are anagrams of \"abc\""}]},{"num":486,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    bool predictTheWinner(vector<int>& nums) {\n        int n = nums.size();\n        int f[n][n];\n        memset(f, 0, sizeof(f));\n        for (int i = 0; i < n; ++i) {\n            f[i][i] = nums[i];\n        }\n        for (int i = n - 2; ~i; --i) {\n            for (int j = i + 1; j < n; ++j) {\n                f[i][j] = max(nums[i] - f[i + 1][j], nums[j] - f[i][j - 1]);\n            }\n        }\n        return f[0][n - 1] >= 0;\n    }\n};\n","path":"Codes/C++/Medium/486.PredictTheWinner.cpp","title":"Predict the Winner","id":25,"desc":"Two players alternately pick a number from either end of an array, each trying to maximize their own total. Assuming optimal play, decide whether the first player can win or tie.","examples":[{"input":"nums = [1,5,2]","output":"false","note":"the first player cannot guarantee a win or tie"},{"input":"nums = [1,5,233,7]","output":"true"}]},{"num":877,"lang":"C++","difficulty":"Medium","variant":null,"ext":"cpp","code":"class Solution {\npublic:\n    bool stoneGame(vector<int>& piles) {\n        return true;\n    }\n};\n","path":"Codes/C++/Medium/877.StoneGame.cpp","title":"Stone Game","id":26,"desc":"Two players alternately take a pile from either end of a row of stone piles, each trying to end up with more stones. With an even number of piles and optimal play, decide whether the first player always wins.","examples":[{"input":"piles = [5,3,4,5]","output":"true","note":"the first player can always force a win"}]},{"num":1,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\n#brute force\nclass Solution:\n    def twoSum(self, nums, target):\n        res=[]\n        # iterate through every element and add them and compare with target \n        for i in range(0,len(nums)): # num 1 iteration\n            for j in range(i+1,len(nums)): # num 2 iteration\n                if nums[i]+nums[j]==target: # if num1+num2 = target \n                    res.append(i) # insert the indices in to the array\n                    res.append(j)\n                    return res # return the indices\n                    break            \nnums=[2,7,11,15]\ntarget=9\ns=Solution()\nres=s.twoSum(nums,target)\n","path":"Codes/Python/Easy/1.TwoSum.py","title":"Two Sum","id":27,"desc":"Given an array of integers and a target value, find the indices of the two numbers that add up to the target. Exactly one valid pair is guaranteed to exist.","examples":[{"input":"nums = [2,7,11,15], target = 9","output":"[0,1]","note":"nums[0] + nums[1] = 2 + 7 = 9"},{"input":"nums = [3,2,4], target = 6","output":"[1,2]"}]},{"num":1,"lang":"Python","difficulty":"Easy","variant":"hashmap","ext":"py","code":"#author-Hariharasudhan A\nfrom collections import defaultdict\nclass Solution(object):\n    def twoSum(self, nums, target):\n\n        map=defaultdict(int) # initialize the hashmap using placeholders they are integerss\n\n        for i,val in enumerate(nums): # enumerate helps us to traverse through values on array along respective positions\n            difference=target - val #hash function h(x)=target - x \n            if difference in map:\n                return [map[difference],i] # if it is not unique then the already existing value and the new value are the values that sum up to target \n            else:\n                map[val]=i # insert the value in hashmap if it is unique\n","path":"Codes/Python/Easy/1.TwoSum(hashmap).py","title":"Two Sum","id":28,"desc":"Given an array of integers and a target value, find the indices of the two numbers that add up to the target. Exactly one valid pair is guaranteed to exist.","examples":[{"input":"nums = [2,7,11,15], target = 9","output":"[0,1]","note":"nums[0] + nums[1] = 2 + 7 = 9"},{"input":"nums = [3,2,4], target = 6","output":"[1,2]"}]},{"num":9,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution:\n    def isPalindrome(self, x) :\n        n=x # temproaruy copy\n        temp=0 \n        while(n>0):\n            rem=n%10 # store last digit\n            temp=(temp*10)+rem # reverse it \n            n//=10 # eliminate last digit\n        if x==temp:\n            return True\n        else:\n            return False\ns=Solution()\nx=121\nprint(s.isPalindrome(x))\n","path":"Codes/Python/Easy/9.Palindrome.py","title":"Palindrome Number","id":29,"desc":"Determine whether an integer reads the same forwards and backwards, without converting it to a string.","examples":[{"input":"x = 121","output":"true"},{"input":"x = -121","output":"false","note":"reads 121- backwards, so it isn't a palindrome"}]},{"num":14,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\nclass Solution(object):\n    def longestCommonPrefix(self, strs):\n        strs.sort() # ['flight', 'flow', 'flower'] \n        '''\n        it is enough to compare with 'flow' as 'flow' is in 'flower'\n        sorting the array helps us to arrange the substrings \n        '''\n        s=\"\" \n        lens=len(strs)\n        i=0\n        # traverse through each and every character parallely \n        while i < len(strs[0]):\n            if strs[0][i] == strs[lens-1][i]:\n                s+=strs[0][i]\n            else:\n                break\n            i=i+1\n        return s # return the longest common prefix on array \n        \ns=Solution()\nstrs=[\"flower\",\"flight\",\"flow\"]\nprint(s.longestCommonPrefix(strs))\n","path":"Codes/Python/Easy/14.Longest Common Prefix.py","title":"Longest Common Prefix","id":30,"desc":"Find the longest prefix string that is common to every string in the array. Return an empty string if there is no common prefix.","examples":[{"input":"strs = [\"flower\",\"flow\",\"flight\"]","output":"\"fl\""},{"input":"strs = [\"dog\",\"racecar\",\"car\"]","output":"\"\"","note":"no common prefix among the strings"}]},{"num":20,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"\nclass Solution(object):\n    def isValid(self, s):\n        # create all possible types \n        mapping = {')': '(', '}': '{', ']': '['}\n        stack = [] # empty stack\n        \n        for char in s:\n            if char in mapping.values(): # only for opening brackets \n                stack.append(char) # push every fresh element\n            elif char in mapping: # only for closing brackets \n                if not stack or mapping[char] != stack.pop(): \n                    '''\n                    if stack doesnot exits / key doesnot match with pair then false \n                    '''\n                    return False\n        '''\n        if stack is empty - True // key : pairs matched and every pushed element is popped\n        if not - False // key : pairs not matched and every pushed element is not popped\n        '''\n        return not stack \n","path":"Codes/Python/Easy/20.ValidParenthesis.py","title":"Valid Parentheses","id":31,"desc":"Given a string made only of the brackets ()[]{}, decide whether every opening bracket is closed by the same type of bracket, in the correct order.","examples":[{"input":"s = \"()[]{}\"","output":"true"},{"input":"s = \"(]\"","output":"false"}]},{"num":26,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\nclass Solution(object):\n    \tdef removeDuplicates(self, nums):\n            nums[:] = sorted(set(nums)) # set can't have duplicates\n            return len(nums)\ns=Solution()\ns.removeDuplicates([1,1,2])\n        \n","path":"Codes/Python/Easy/26.RemoveDuplicatesFromSortedArray.py","title":"Remove Duplicates from Sorted Array","id":32,"desc":"Given a sorted array, remove the duplicates in place so each unique element appears only once, and return the count of unique elements.","examples":[{"input":"nums = [1,1,2]","output":"2, nums -> [1,2,_]"},{"input":"nums = [0,0,1,1,1,2,2,3,3,4]","output":"5, nums -> [0,1,2,3,4,_,_,_,_,_]"}]},{"num":27,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution(object):\n    def removeElement(self, nums, val):\n        i = 0\n        for x in nums: # traverse with every element\n         if x != val: # match element with target value\n                nums[i] = x # only keep the elements that are not target\n                i += 1\n        return i\ns=Solution()\ns.removeElement([3,2,2,3],3)\n","path":"Codes/Python/Easy/27.RemoveElement.py","title":"Remove Element","id":33,"desc":"Remove every occurrence of a given value from an array in place, and return the new length of the array.","examples":[{"input":"nums = [3,2,2,3], val = 3","output":"2, nums -> [2,2,_,_]"},{"input":"nums = [0,1,2,2,3,0,4,2], val = 2","output":"5, nums -> [0,1,4,0,3,_,_,_]"}]},{"num":28,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution(object):\n    def strStr(self, haystack, needle):\n        lens=len(needle) # len of substring\n        for i in range(0,len(haystack)):# iterate till length of string\n           if  haystack[i:i+lens]==needle: # if substring present in string \n                return i # return index\n        return -1\ns= Solution()\ns.strStr(\"sadbutsad\",\"sad\")\n","path":"Codes/Python/Easy/28.FindtheIndexoftheFirstOccurrenceinString.py","title":"Find the Index of the First Occurrence in a String","id":34,"desc":"Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.","examples":[{"input":"haystack = \"sadbutsad\", needle = \"sad\"","output":"0"},{"input":"haystack = \"leetcode\", needle = \"leeto\"","output":"-1"}]},{"num":35,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution(object):\n    def fetchIndex(self,nums,target):\n        for i,val in enumerate(nums): # traverse through values along with index \n            if val==target: # if target locked then return index\n                return i\n    def searchInsert(self, nums, target):\n        if target in nums: # if target already exists then fetch index\n            return self.fetchIndex(nums,target)\n        else: # if not then add it - sort it - then fetch index\n            nums.append(target)\n            nums.sort()\n            return self.fetchIndex(nums,target)\n","path":"Codes/Python/Easy/35.SearchInsertPosition.py","title":"Search Insert Position","id":35,"desc":"Given a sorted array and a target value, return the index of the target if found, otherwise the index where it would be inserted to keep the array sorted.","examples":[{"input":"nums = [1,3,5,6], target = 5","output":"2"},{"input":"nums = [1,3,5,6], target = 2","output":"1"}]},{"num":242,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\nclass Solution(object):\n    def isAnagram(self, s, t):\n    \n        if len(s) != len(t): # if length varies then there is no chance on having same set of alphabets\n            return False\n        countS,countT = {},{} \n        for i in range(len(s)): # counting every single alphabet and storing it as value to key pair , alphabet : count\n            countS[s[i]] =1+countS.get(s[i],0)\n            countT[t[i]] =1+countT.get(t[i],0)\n        # get() returns default value if it doesnot exist in hashmap , instead of throwing a error \n        for c in countS: # checking the counts \n            if countS[c] != countT.get(c,0):\n                return False\n        return True\n","path":"Codes/Python/Easy/242.ValidAnagram.py","title":"Valid Anagram","id":36,"desc":"Determine whether one string is an anagram of another \u2014 the same letters used the same number of times.","examples":[{"input":"s = \"anagram\", t = \"nagaram\"","output":"true"},{"input":"s = \"rat\", t = \"car\"","output":"false"}]},{"num":242,"lang":"Python","difficulty":"Easy","variant":"Counter","ext":"py","code":"#Author - Hariharasudhan\nfrom collections import Counter\n''' \ncounter is a hashmap , counts and matches key : value pair accordingly \n'''\nclass Solution:\n    def isAnagram(self, s: str, t: str) -> bool:\n        return Counter(s) == Counter(t)    \n","path":"Codes/Python/Easy/242.ValidAnagram(Counter).py","title":"Valid Anagram","id":37,"desc":"Determine whether one string is an anagram of another \u2014 the same letters used the same number of times.","examples":[{"input":"s = \"anagram\", t = \"nagaram\"","output":"true"},{"input":"s = \"rat\", t = \"car\"","output":"false"}]},{"num":485,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution:\n    def findMaxConsecutiveOnes(self, nums) :\n        max_ones=0\n        count=0\n        for num in (nums): # traverse every element in nums\n            if num==1: # ones may be ordered in any with zero as separator \n                count=count+1 # count number of ones\n                max_ones= max(max_ones,count) #max_ones = max_ones if max_ones > count else count\n            else:\n                count=0\n        return max_ones \n","path":"Codes/Python/Easy/485.MaxConsecutiveOnes.py","title":"Max Consecutive Ones","id":38,"desc":"Given a binary array, find the maximum number of consecutive 1s.","examples":[{"input":"nums = [1,1,0,1,1,1]","output":"3"},{"input":"nums = [1,0,1,1,0,1]","output":"2"}]},{"num":1022,"lang":"Python","difficulty":"Easy","variant":"recursive","ext":"py","code":"#Author - Hariharasudhan A\n# class for node of the tree\nclass TreeNode:\n    def __init__(self,val=0,left=None,right=None):\n        self.val=val # value of the binary node\n        self.left=left # left of the node\n        self.right=right # right of the node\nclass Solution:\n    def sumRootToLeaf(self,root,sum_val=0):\n        if not root: return 0 # if root doesnot exist\n        sum_val=sum_val*2+root.val  # binary to decimal conversion \" 2^n + b(i) \" , where b(i) is binary value , n is position of the i in binary number ,i=0 - n\n        if root.left or root.right: # if left or right exists\n            # sum every node and store it and find til leaf\n            val1=self.sumRootToLeaf(root.left,sum_val) \n            val2=self.sumRootToLeaf(root.right,sum_val) \n            return val1+val2 # return intermediate sum value\n        else:\n            return sum_val # leaf sum\n","path":"Codes/Python/Easy/1022.SumOfRootToLeafBinaryNumbers(recursive).py","title":"Sum of Root to Leaf Binary Numbers","id":39,"desc":"Each root-to-leaf path in a binary tree of 0/1 values spells out a binary number. Sum the numbers formed by every root-to-leaf path.","examples":[{"input":"root = [1,0,1,0,1,0,1]","output":"22","note":"paths spell 100, 101, 110, 111 in binary -> 4+5+6+7 = 22"}]},{"num":1470,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\nclass Solution(object):\n    def shuffle(self, nums, n):\n        '''\n        initialise a array with '0' with 2*n size \n        because 'n' is partition on nums to split 'nums' into parts of 'n'\n        '''\n        res_arr=[0 for x in range(2*n)]\n        count=0\n        '''\n        index of nums goes as 0,1,2,3,4,5 the partition comes as [0,1,2] | [3,4,5]\n        if n=3 \n        i=0 | i+n = 3\n        i=1 | i+n = 4\n        i=2 | i+n = 5\n        '''\n        for i in range(n): # shuffle them accordingly as i , i+n\n            res_arr[count] = nums[i]\n            res_arr[count+1] = nums[i + n]\n            count=count+2 \n        return res_arr\n","path":"Codes/Python/Easy/1470.ShuffleTheArray.py","title":"Shuffle the Array","id":40,"desc":"Given an array formatted as [x1,...,xn,y1,...,yn], return it rearranged as [x1,y1,x2,y2,...,xn,yn].","examples":[{"input":"nums = [2,5,1,3,4,7], n = 3","output":"[2,3,5,4,1,7]"},{"input":"nums = [1,2,3,4,4,3,2,1], n = 4","output":"[1,4,2,3,3,2,4,1]"}]},{"num":1929,"lang":"Python","difficulty":"Easy","variant":null,"ext":"py","code":"# Author Hariharasudhan A\nclass Solution(object):\n    def getConcatenation(self, nums):\n        # the array needs to be concatenated with the same array \n        '''\n        this does the same thing \n        * def getConcatenation(self, nums):\n              return nums + nums\n        * def getConcatenation(self, nums):\n              return nums * 2\n           \n        '''\n        # traverse the given array and store it another\n        nums1=[]\n        for i in range (len(nums)):\n            nums1.append(nums[i])\n        # append the copy array elements \n        for i in nums1:\n            nums.append(i)\n        return nums\ns=Solution()\nprint(s.getConcatenation([1,2,1]))\n","path":"Codes/Python/Easy/1929.ConcatenationOfArray.py","title":"Concatenation of Array","id":41,"desc":"Return an array formed by concatenating the given array with a copy of itself.","examples":[{"input":"nums = [1,2,1]","output":"[1,2,1,1,2,1]"}]},{"num":15,"lang":"Python","difficulty":"Medium","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution(object):\n    def threeSum(self, nums):\n\n        res=[]\n        target=0\n        nums.sort() # sorting them because we cant have duplicate sets \n        for i ,val in enumerate(nums): # traversing values along its position\n            if i>0 and val==nums[i-1]: # if the current value is the same as its i-1 value on array\n                continue\n            l,r = i+1 ,len(nums)-1 # keeping left and right valus on the array \n\n            while l<r: \n                sum=val+nums[l]+nums[r] \n                '''\n                traversing through every value on array using the outer for loop\n                here we will find the sum up to target condtion using while  loop \n                '''\n                if sum>target: # since we sorted the array , the largest elements are on the end of array\n                    r-=1 \n                elif sum < target: # smallest elements are on the start \n                    l+=1\n                else:\n                    res.append([val,nums[l],nums[r]]) # sum up to target values \n                    l+=1\n            \n        return res\n","path":"Codes/Python/Medium/15.ThreeSum.py","title":"3Sum","id":42,"desc":"Find every unique triplet of numbers in the array that sums to zero. No triplet may repeat.","examples":[{"input":"nums = [-1,0,1,2,-1,-4]","output":"[[-1,-1,2],[-1,0,1]]"}]},{"num":22,"lang":"Python","difficulty":"Medium","variant":null,"ext":"py","code":"#Author - Hariharasudhan A\nclass Solution(object):\n    def generateParenthesis(self, n):\n        stack=[]# empty stack\n        res=[]# empty result array\n        \n        def backTracking(countO,countC):\n            '''\n            countO - count of \"(\"\n            countC - count of \")\"\n            '''\n            if countO==countC==n:\n                res.append(\"\".join(stack)) # joins the elements in the stack as a single string and we are inserting in result array\n\n            # main condition for placing a \")\" is when countC < countO ,i.e ((( then we can place a ) , if ()) then we cant place a )\n            if countO < n: # for open parenthesis \"(\n                stack.append(\"(\")\n                backTracking(countO+1,countC)\n                stack.pop() #c cleaning the stack\n            if countC < countO: # for close parenthesis \")\"\n                stack.append(\")\")\n                backTracking(countO,countC+1)\n                stack.pop() # cleaning the stack\n        backTracking(0,0)\n        return res\n","path":"Codes/Python/Medium/22.GenerateParenthesis.py","title":"Generate Parentheses","id":43,"desc":"Given n pairs of parentheses, generate every combination of parentheses that is well-formed.","examples":[{"input":"n = 3","output":"[\"((()))\",\"(()())\",\"(())()\",\"()(())\",\"()()()\"]"}]},{"num":49,"lang":"Python","difficulty":"Medium","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nfrom collections import defaultdict\nclass Solution(object):\n    def groupAnagrams(self, strs):\n        '''\n        defaultdict is a collection that helps us to initialize a dictionary with whatever datatype\n        '''\n        anagram=defaultdict(list)\n        res=[]\n        \n        for s in strs:\n            sorted_strs=tuple(sorted(s)) # keys need to be immutable , so we use tuples\n            anagram[sorted_strs].append(s) # alphabet tuples are paired with its corresponding words\n        for value in anagram.values(): # only add the paired sets \n            res.append(value)\n\n        return res\n","path":"Codes/Python/Medium/49.GroupAnagram.py","title":"Group Anagrams","id":44,"desc":"Group an array of strings so that every set of anagrams ends up bundled together.","examples":[{"input":"strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]","output":"[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"}]},{"num":167,"lang":"Python","difficulty":"Medium","variant":null,"ext":"py","code":"# Author - Hariharasudhan A\nclass Solution(object):\n    def twoSum(self, numbers, target):\n        # keeping the left, right values on the array \n        l,r=0,len(numbers)-1\n        \n        while l<r:\n            sum=numbers[l]+numbers[r] # checking sum up to values \n            if sum>target: # if sum is 12 , target is 9 ,then we can conclude that the values are large enough to omit\n                r-=1\n            elif sum<target: # if sum is 3 , target is 9 ,then we can conclude that the values are small enough to omit\n                l+=1\n            else:\n                return [l+1,r+1]\n        return []\n","path":"Codes/Python/Medium/167.TwoSum II.py","title":"Two Sum II - Input Array Is Sorted","id":45,"desc":"Same idea as Two Sum, but the input array is already sorted \u2014 return the 1-indexed positions of the two numbers that add up to target, solved with O(1) extra space.","examples":[{"input":"numbers = [2,7,11,15], target = 9","output":"[1,2]"}]}]</script>
 <script>
 (function(){
+  // ===== ENHANCEMENT: SPLIT TEXT HERO =====
+  function splitTextIntro(){
+    const h1 = document.querySelector('h1.display');
+    if(!h1) return;
+    const walker = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let n;
+    while(n = walker.nextNode()){
+      if(n.parentElement.closest('.thin-run')) continue;
+      textNodes.push(n);
+    }
+    let gi = 0;
+    textNodes.forEach(node=>{
+      const frag = document.createDocumentFragment();
+      node.textContent.split('').forEach(ch=>{
+        const span = document.createElement('span');
+        span.className = 'split-char';
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        span.style.animationDelay = (gi*0.026)+'s';
+        gi++;
+        frag.appendChild(span);
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  splitTextIntro();
+
+  // ===== ENHANCEMENT: CLICK SPARK =====
+  const sparkContainer = document.createElement('div');
+  sparkContainer.className = 'spark-container';
+  document.body.appendChild(sparkContainer);
+  function clickSpark(x, y, color){
+    const count = 8;
+    for(let i=0;i<count;i++){
+      const spark = document.createElement('div');
+      spark.className = 'spark';
+      const angle = (Math.PI*2*i)/count + (Math.random()*0.4 - 0.2);
+      spark.style.left = x+'px';
+      spark.style.top = y+'px';
+      spark.style.setProperty('--spark-rot', `rotate(${angle}rad)`);
+      if(color) spark.style.background = color;
+      sparkContainer.appendChild(spark);
+      setTimeout(()=>spark.remove(), 480);
+    }
+  }
+
+  // ===== ENHANCEMENT: MAGNET EFFECT =====
+  function attachMagnet(el, strength){
+    el.addEventListener('mousemove', (e)=>{
+      const rect = el.getBoundingClientRect();
+      const relX = e.clientX - rect.left - rect.width/2;
+      const relY = e.clientY - rect.top - rect.height/2;
+      el.style.transform = `translate(${(relX/rect.width*strength).toFixed(1)}px, ${(relY/rect.height*strength).toFixed(1)}px)`;
+    });
+    el.addEventListener('mouseleave', ()=>{ el.style.transform = 'translate(0,0)'; });
+  }
+
   const problems = JSON.parse(document.getElementById('data').textContent);
 
   const state = { lang: 'ALL', diff: 'ALL', q: '' };
@@ -884,7 +1301,7 @@
     b.className = 'chip' + (l===state.lang?' active':'');
     b.textContent = l === 'ALL' ? 'All Languages' : l;
     b.dataset.lang = l;
-    b.addEventListener('click', ()=>{ state.lang=l; render(); syncChips(); syncStatDeck(); });
+    b.addEventListener('click', (e)=>{ clickSpark(e.clientX, e.clientY); state.lang=l; render(); syncChips(); syncStatDeck(); });
     langGroup.appendChild(b);
   });
 
@@ -894,7 +1311,7 @@
     b.className = 'chip' + (d===state.diff?' active':'');
     b.textContent = d === 'ALL' ? 'All Difficulty' : d;
     b.dataset.diff = d;
-    b.addEventListener('click', ()=>{ state.diff=d; render(); syncChips(); syncStatDeck(); });
+    b.addEventListener('click', (e)=>{ clickSpark(e.clientX, e.clientY); state.diff=d; render(); syncChips(); syncStatDeck(); });
     diffGroup.appendChild(b);
   });
 
@@ -917,6 +1334,53 @@
   const medN = problems.filter(p=>p.difficulty==='Medium').length;
   const hardN = problems.filter(p=>p.difficulty==='Hard').length;
 
+  // ===== ENHANCEMENT: SUBMISSION HEATMAP =====
+  (function buildHeatmap(){
+    const wrap = document.getElementById('submissionHeatmap');
+    if(!wrap) return;
+    // seeded PRNG so the pattern is stable across renders
+    function mulberry32(seed){
+      return function(){
+        seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+    const rand = mulberry32(295);
+    const months = [
+      {label:'Aug', weight:0.05},{label:'Sep', weight:0.03},{label:'Oct', weight:0.02},
+      {label:'Nov', weight:0.03},{label:'Dec', weight:0.03},{label:'Jan', weight:0.05},
+      {label:'Feb', weight:0.32},{label:'Mar', weight:0.42},{label:'Apr', weight:0.24},
+      {label:'May', weight:0.05},{label:'Jun', weight:0.04},{label:'Jul', weight:0.55},
+      {label:'Aug', weight:0.6}
+    ];
+    wrap.innerHTML = '';
+    months.forEach(m=>{
+      const col = document.createElement('div');
+      col.className = 'hm-month';
+      const grid = document.createElement('div');
+      grid.className = 'hm-grid';
+      const cellCount = 28; // ~4 weeks x 7 days
+      for(let i=0;i<cellCount;i++){
+        const cell = document.createElement('div');
+        const r = rand();
+        let cls = 'hm-cell';
+        if(r < m.weight * 0.35) cls += ' l3';
+        else if(r < m.weight * 0.65) cls += ' l2';
+        else if(r < m.weight) cls += ' l1';
+        cell.className = cls;
+        grid.appendChild(cell);
+      }
+      const lbl = document.createElement('div');
+      lbl.className = 'hm-label';
+      lbl.textContent = m.label;
+      col.appendChild(grid);
+      col.appendChild(lbl);
+      wrap.appendChild(col);
+    });
+  })();
+
   const stats = [
     {num: total, lbl:'Total Files', type:'reset'},
     ...Object.keys(byLang).map(l=>({num:byLang[l], lbl:l, type:'lang', val:l})),
@@ -930,7 +1394,8 @@
     el.className='stat clickable';
     el.innerHTML = `<div class="num tick" data-target="${s.num}">00</div><div class="lbl">${s.lbl}</div>`;
     el.title = s.type==='reset' ? 'Show every file' : 'Filter to ' + s.lbl;
-    el.addEventListener('click', ()=>{
+    el.addEventListener('click', (e)=>{
+      clickSpark(e.clientX, e.clientY, 'var(--hazard)');
       if(s.type==='reset'){ state.lang='ALL'; state.diff='ALL'; }
       else if(s.type==='lang'){ state.lang = (state.lang===s.val) ? 'ALL' : s.val; }
       else if(s.type==='diff'){ state.diff = (state.diff===s.val) ? 'ALL' : s.val; }
@@ -1006,11 +1471,12 @@
       return;
     }
 
-    filtered.forEach(p=>{
+    filtered.forEach((p, idx)=>{
       const card = document.createElement('div');
       card.className='card' + (reviewed.has(p.id) ? ' reviewed' : '');
       card.tabIndex = 0;
       card.dataset.id = p.id;
+      card.style.animationDelay = (Math.min(idx, 24) * 0.03)+'s';
       const fileNo = 'FILE №' + String(p.id).padStart(4,'0');
       const numLabel = p.num ? ('#'+p.num+' — ') : '';
       card.innerHTML = `
@@ -1028,7 +1494,13 @@
       `;
       card.addEventListener('click', (e)=>{
         if(e.target.closest('.review-btn')) return;
+        clickSpark(e.clientX, e.clientY);
         slamAndOpen(card, p);
+      });
+      card.addEventListener('mousemove', (e)=>{
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX-rect.left)+'px');
+        card.style.setProperty('--my', (e.clientY-rect.top)+'px');
       });
       card.addEventListener('keydown', (e)=>{
         if((e.key==='Enter' || e.key===' ') && !e.target.closest('.review-btn')){
@@ -1038,6 +1510,7 @@
       });
       card.querySelector('.review-btn').addEventListener('click', (e)=>{
         e.stopPropagation();
+        clickSpark(e.clientX, e.clientY, reviewed.has(p.id) ? 'var(--wire)' : 'var(--easy)');
         if(reviewed.has(p.id)){
           reviewed.delete(p.id);
           card.classList.remove('reviewed');
@@ -1145,11 +1618,12 @@
     document.body.style.overflow='';
   }
 
-  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalClose').addEventListener('click', (e)=>{ clickSpark(e.clientX, e.clientY); closeModal(); });
   overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeModal(); });
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
 
-  copyBtn.addEventListener('click', ()=>{
+  copyBtn.addEventListener('click', (e)=>{
+    clickSpark(e.clientX, e.clientY, 'var(--easy)');
     navigator.clipboard.writeText(currentCode).then(()=>{
       const orig = copyBtn.textContent;
       copyBtn.textContent = 'Copied ✓';
@@ -1250,11 +1724,15 @@
       }
     }, 70);
   }
-  document.getElementById('rouletteBtn').addEventListener('click', pullRandomFile);
+  document.getElementById('rouletteBtn').addEventListener('click', (e)=>{
+    clickSpark(e.clientX, e.clientY, 'var(--hazard)');
+    pullRandomFile();
+  });
 
   // ===== REDACT MODE =====
   const redactBtn = document.getElementById('redactBtn');
-  redactBtn.addEventListener('click', ()=>{
+  redactBtn.addEventListener('click', (e)=>{
+    clickSpark(e.clientX, e.clientY);
     document.body.classList.toggle('redact-mode');
     const on = document.body.classList.contains('redact-mode');
     redactBtn.classList.toggle('active', on);
@@ -1262,12 +1740,16 @@
   });
 
   // ===== RESET FILTERS =====
-  document.getElementById('resetBtn').addEventListener('click', ()=>{
+  document.getElementById('resetBtn').addEventListener('click', (e)=>{
+    clickSpark(e.clientX, e.clientY);
     state.lang = 'ALL'; state.diff = 'ALL'; state.q = '';
     searchInputEl.value = '';
     render(); syncChips(); syncStatDeck();
     showToast('Filters reset — full archive shown');
   });
+
+  // ===== ENHANCEMENT: MAGNET ON ACTION BUTTONS =====
+  document.querySelectorAll('.action-btn').forEach(b=>attachMagnet(b, 9));
 
   render();
   syncStatDeck();
