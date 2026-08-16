@@ -1048,6 +1048,7 @@
     font-family:'IBM Plex Mono', monospace;
     cursor:pointer;
     transition:opacity .6s ease, visibility .6s ease;
+    overflow:hidden;
   }
   .boot-screen.boot-done{ opacity:0; visibility:hidden; pointer-events:none; }
   .boot-tape{
@@ -1056,12 +1057,48 @@
     height:16px;
     background:repeating-linear-gradient(135deg, var(--paper) 0, var(--paper) 16px, var(--hazard) 16px, var(--hazard) 32px);
     opacity:0.9;
+    z-index:3;
   }
   .boot-tape-top{ top:0; }
   .boot-tape-bottom{ bottom:0; }
+  .boot-fluid{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    opacity:0.5;
+  }
+  .boot-fluid svg{ width:100%; height:100%; display:block; }
+  .boot-fluid path.fl{
+    fill:none;
+    stroke-width:1.4;
+  }
   .boot-inner{
     width:min(520px, 86vw);
     text-align:center;
+    position:relative;
+    z-index:2;
+  }
+  .boot-avatar{
+    width:84px; height:84px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    border:3px solid var(--hazard);
+    padding:3px;
+    overflow:hidden;
+    background:var(--ink);
+    box-shadow:0 0 0 1px rgba(251,249,243,0.15), 0 0 26px rgba(243,195,0,0.25);
+    animation:avatarPulse 2.4s ease-in-out infinite;
+  }
+  .boot-avatar img{
+    width:100%; height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    display:block;
+    filter:grayscale(0.15) contrast(1.05);
+  }
+  @keyframes avatarPulse{
+    0%,100%{ box-shadow:0 0 0 1px rgba(251,249,243,0.15), 0 0 18px rgba(243,195,0,0.2); }
+    50%{ box-shadow:0 0 0 1px rgba(251,249,243,0.2), 0 0 34px rgba(243,195,0,0.4); }
   }
   .boot-kicker{
     font-size:11px;
@@ -1148,13 +1185,72 @@
     .card{ opacity:1 !important; transform:none !important; }
     .boot-screen{ display:none; }
   }
+
+  /* ===== ENHANCEMENT: DOSSIER PANEL (README-DERIVED) ===== */
+  .dossier-panel{ max-width:1180px; margin:0 auto var(--sp-5); padding:0 28px; }
+  .dossier-inner{ border:3px solid var(--ink); background:var(--paper); padding:28px 30px; }
+  .dossier-head{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px; margin-bottom:22px; }
+  .dossier-quote{
+    font-size:12.5px;
+    color:var(--wire);
+    max-width:520px;
+    line-height:1.6;
+    font-style:normal;
+    border-left:2px solid var(--hazard);
+    padding-left:12px;
+  }
+  .dossier-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px,1fr));
+    gap:28px;
+  }
+  .dossier-col + .dossier-col{ border-left:2px dashed var(--ink); padding-left:28px; }
+  @media (max-width:900px){ .dossier-col + .dossier-col{ border-left:none; padding-left:0; border-top:2px dashed var(--ink); padding-top:20px; } }
+  .stack-row{ display:flex; flex-wrap:wrap; gap:8px; }
+  .stack-chip{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    padding:6px 10px;
+    border:1.5px solid var(--ink);
+    background:var(--concrete);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .stack-chip img{ width:14px; height:14px; display:block; }
+  .badge-strip{ display:flex; flex-wrap:wrap; gap:8px; }
+  .badge-strip img{ height:24px; display:block; }
+  .dossier-project{
+    border:2px solid var(--ink);
+    background:var(--concrete);
+    padding:14px 16px;
+    margin-bottom:14px;
+  }
+  .dossier-project:last-child{ margin-bottom:0; }
+  .dossier-project-title{
+    font-family:'Anton', sans-serif;
+    font-size:15px;
+    letter-spacing:0.02em;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .dossier-project-title a{ color:var(--ink); text-decoration:none; border-bottom:2px solid var(--hazard); }
+  .dossier-project-desc{ font-size:12px; line-height:1.6; color:#2a2a2a; }
+  .dossier-stats-imgs{ display:flex; flex-direction:column; gap:12px; }
+  .dossier-stats-imgs img{ width:100%; display:block; border:2px solid var(--ink); }
+  .dossier-links{ display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
 </style>
 </head>
 <body>
 
 <div id="bootScreen" class="boot-screen" role="status" aria-live="polite">
+  <div class="boot-fluid" id="bootFluid"></div>
   <div class="boot-tape boot-tape-top"></div>
   <div class="boot-inner">
+    <div class="boot-avatar"><img src="https://i.pinimg.com/1200x/0c/ec/13/0cec13e5dc7cfd5b0084e7733523525a.jpg" alt="Hariharasudhan A" loading="lazy"></div>
     <div class="boot-kicker">Restricted Archive Access</div>
     <div class="boot-title display" id="bootTitle">DECLASSIFYING</div>
     <div class="boot-bar-track"><div class="boot-bar-fill" id="bootBarFill"></div></div>
@@ -1279,6 +1375,69 @@
   </div>
 </section>
 
+<section class="dossier-panel">
+  <div class="dossier-inner">
+    <div class="dossier-head">
+      <div class="progress-sheet-label" style="margin:0;">Field Dossier — Compiled from GitHub Profile README</div>
+      <div class="dossier-quote">"Those who cannot remember the past are condemned to repeat it" — Dynamic Programming</div>
+    </div>
+    <div class="divider-row"></div>
+    <div class="dossier-grid">
+      <div class="dossier-col">
+        <div class="profile-label">Languages &amp; Databases</div>
+        <div class="stack-row" style="margin-bottom:22px;">
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/python.png" alt="">Python</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="">C / C++</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="">Java</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/html-5.png" alt="">HTML5</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/css3.png" alt="">CSS3</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/nodejs.png" alt="">Node.js</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/oracle-logo.png" alt="">Oracle SQL</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/mongodb.png" alt="">MongoDB</span>
+        </div>
+        <div class="profile-label">Tools &amp; Platforms</div>
+        <div class="stack-row">
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/visual-studio-code-2019.png" alt="">VS Code</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/git.png" alt="">Git</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/github.png" alt="">GitHub</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/docker.png" alt="">Docker</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/figma.png" alt="">Figma</span>
+          <span class="stack-chip"><img src="https://img.icons8.com/color/48/linux.png" alt="">Linux</span>
+        </div>
+      </div>
+      <div class="dossier-col">
+        <div class="profile-label">Program Badges</div>
+        <div class="badge-strip" style="margin-bottom:22px;">
+          <img src="https://img.shields.io/badge/Google_Maps_Platform_Innovator-4285F4?style=flat-square&logo=googlemaps&logoColor=white" alt="Google Maps Platform Innovator">
+          <img src="https://img.shields.io/badge/Google_Cloud_%26_NVIDIA_Community-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="Google Cloud and NVIDIA Community">
+          <img src="https://img.shields.io/badge/Gemini_Enterprise_Agent_Ready-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Gemini Enterprise Agent Ready">
+        </div>
+        <div class="profile-label">Featured Projects</div>
+        <div class="dossier-project">
+          <div class="dossier-project-title">🚧 <a href="https://github.com/hariharasudhan-29507/ROADZEN" target="_blank" rel="noopener">RoadZen</a></div>
+          <div class="dossier-project-desc">AI road-safety platform predicting accident severity with XGBoost, explained via SHAP, backed by a live heatmap, analytics dashboard, safety chatbot and emergency dispatch — served through FastAPI.</div>
+        </div>
+        <div class="dossier-project">
+          <div class="dossier-project-title">🚗 <a href="https://github.com/hariharasudhan-29507/RENTO" target="_blank" rel="noopener">Rento</a></div>
+          <div class="dossier-project-desc">JavaFX desktop app for vehicle rental management — booking flows, role-based dashboards for Admin/Supplier/Driver, MongoDB backend, PDF receipts.</div>
+        </div>
+      </div>
+      <div class="dossier-col">
+        <div class="profile-label">GitHub Read-Out</div>
+        <div class="dossier-stats-imgs">
+          <img src="https://glib-stats.vercel.app/api?username=hariharasudhan-29507&show_icons=true&hide_border=true&bg_color=FBF9F3&title_color=111111&icon_color=D62B1F&text_color=111111&count_private=true&cache_seconds=86400" alt="GitHub stats" loading="lazy">
+          <img src="https://streak-stats.demolab.com/?user=hariharasudhan-29507&hide_border=true&background=FBF9F3&stroke=111111&ring=D62B1F&fire=D62B1F&currStreakLabel=111111&currStreakNum=111111&sideNums=111111&sideLabels=8A8474&dates=8A8474" alt="GitHub streak" loading="lazy">
+        </div>
+        <div class="dossier-links">
+          <a class="action-btn ghost" href="https://www.linkedin.com/in/hariharasudhan-a-457616378" target="_blank" rel="noopener">LinkedIn →</a>
+          <a class="action-btn ghost" href="https://github.com/hariharasudhan-29507" target="_blank" rel="noopener">GitHub →</a>
+          <a class="action-btn ghost" href="mailto:sudanayyappan_bcs28@mepcoeng.ac.in">Email →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="stat-deck" id="statDeck"></div>
 
 <div class="control-panel">
@@ -1382,6 +1541,63 @@
     }, 30);
   }
 
+  // ===== ENHANCEMENT: BOOT SCREEN FLUID LINES =====
+  function buildBootFluid(){
+    const holder = document.getElementById('bootFluid');
+    if(!holder) return { start(){}, stop(){} };
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const W = 1000, H = 600;
+    const lineCount = 7;
+    const colors = ['#F3C300','#FBF9F3','#D62B1F'];
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    const paths = [];
+    for(let i=0;i<lineCount;i++){
+      const p = document.createElementNS(svgNS, 'path');
+      p.setAttribute('class', 'fl');
+      p.setAttribute('stroke', colors[i % colors.length]);
+      p.setAttribute('stroke-opacity', (0.18 + (i % 3) * 0.07).toFixed(2));
+      svg.appendChild(p);
+      paths.push({ el: p, baseY: (H / (lineCount + 1)) * (i + 1), phase: Math.random() * Math.PI * 2, speed: 0.5 + Math.random() * 0.6, amp: 24 + Math.random() * 30 });
+    }
+    holder.appendChild(svg);
+
+    function pathAt(cfg, t){
+      const segments = 10;
+      let d = '';
+      for(let s=0; s<=segments; s++){
+        const x = (W / segments) * s;
+        const y = cfg.baseY + Math.sin((s / segments) * Math.PI * 2 * 1.4 + t * cfg.speed + cfg.phase) * cfg.amp
+                  + Math.sin((s / segments) * Math.PI * 3.1 + t * cfg.speed * 0.6) * (cfg.amp * 0.3);
+        d += (s === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+      }
+      cfg.el.setAttribute('d', d);
+    }
+
+    let raf = null;
+    let running = false;
+    function frame(t){
+      if(!running) return;
+      const tt = t / 1000;
+      paths.forEach(cfg => pathAt(cfg, tt));
+      raf = requestAnimationFrame(frame);
+    }
+    return {
+      start(){
+        if(reduced || running) return;
+        running = true;
+        raf = requestAnimationFrame(frame);
+      },
+      stop(){
+        running = false;
+        if(raf) cancelAnimationFrame(raf);
+      }
+    };
+  }
+  const bootFluidCtrl = buildBootFluid();
+
   // ===== ENHANCEMENT: BOOT / LOADING SCREEN =====
   (function bootSequence(){
     const boot = document.getElementById('bootScreen');
@@ -1400,12 +1616,14 @@
       if(done) return;
       done = true;
       boot.classList.add('boot-done');
+      bootFluidCtrl.stop();
       document.body.style.overflow = '';
       setTimeout(()=>{ boot.remove(); }, 650);
     }
 
     if(reduced){ finish(); return; }
 
+    bootFluidCtrl.start();
     scrambleText(titleEl, 'DECLASSIFYING', 550);
 
     const dur = 1500 + Math.random()*350;
