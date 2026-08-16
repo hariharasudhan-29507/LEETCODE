@@ -1942,8 +1942,6 @@
     render(); syncChips(); syncStatDeck();
     showToast('Filters reset — full archive shown');
   });
-
-  // ===== ENHANCEMENT: MAGNET ON ACTION BUTTONS =====
   document.querySelectorAll('.action-btn').forEach(b=>attachMagnet(b, 9));
   document.querySelectorAll('.chip, .tool-btn, .badges-arrow').forEach(b=>attachMagnet(b, 5));
 
