@@ -1206,15 +1206,6 @@
       <div class="chip-group" id="diffGroup"></div>
       <div class="count-readout" id="countReadout"></div>
     </div>
-    <div class="divider-row"></div>
-    <div class="panel-row" style="justify-content:space-between;">
-      <div class="action-row">
-        <button class="action-btn" id="rouletteBtn">🎲 Pull Random File</button>
-        <button class="action-btn ghost" id="redactBtn">Redact Mode</button>
-        <button class="action-btn ghost" id="resetBtn">Reset Filters</button>
-      </div>
-      <div class="kbd-hint"><kbd>/</kbd> search &nbsp; <kbd>↑↓←→</kbd> navigate &nbsp; <kbd>enter</kbd> open &nbsp; <kbd>esc</kbd> close</div>
-    </div>
   </div>
 </div>
 
@@ -1864,9 +1855,6 @@
       e.preventDefault();
       searchInputEl.focus();
     }
-    if((e.key==='r' || e.key==='R') && document.activeElement !== searchInputEl && !overlay.classList.contains('open')){
-      pullRandomFile();
-    }
   });
 
   // ===== ARROW KEY GRID NAVIGATION =====
@@ -1886,65 +1874,7 @@
     cards[next].focus();
   });
 
-  // ===== PULL RANDOM FILE (roulette) =====
-  function pullRandomFile(){
-    const cards = Array.from(grid.querySelectorAll('.card'));
-    if(cards.length===0){ showToast('No files match current filters'); return; }
-    const rouletteBtn = document.getElementById('rouletteBtn');
-    rouletteBtn.disabled = true;
-    const originalText = rouletteBtn.textContent;
-    let ticks = 0;
-    const maxTicks = 14 + Math.floor(Math.random()*8);
-    let lastCard = null;
-    const interval = setInterval(()=>{
-      if(lastCard) lastCard.classList.remove('roulette-hit');
-      const pick = cards[Math.floor(Math.random()*cards.length)];
-      pick.classList.add('roulette-hit');
-      pick.scrollIntoView({block:'center', behavior:'smooth'});
-      lastCard = pick;
-      rouletteBtn.textContent = '🎲 Rolling...';
-      ticks++;
-      if(ticks >= maxTicks){
-        clearInterval(interval);
-        rouletteBtn.textContent = originalText;
-        rouletteBtn.disabled = false;
-        setTimeout(()=>{
-          if(lastCard){
-            lastCard.classList.remove('roulette-hit');
-            const id = parseInt(lastCard.dataset.id, 10);
-            const p = problems.find(pp=>pp.id===id);
-            if(p) slamAndOpen(lastCard, p);
-          }
-        }, 150);
-      }
-    }, 70);
-  }
-  document.getElementById('rouletteBtn').addEventListener('click', (e)=>{
-    clickSpark(e.clientX, e.clientY, 'var(--hazard)');
-    pullRandomFile();
-  });
-
-  // ===== REDACT MODE =====
-  const redactBtn = document.getElementById('redactBtn');
-  redactBtn.addEventListener('click', (e)=>{
-    clickSpark(e.clientX, e.clientY);
-    document.body.classList.toggle('redact-mode');
-    const on = document.body.classList.contains('redact-mode');
-    redactBtn.classList.toggle('active', on);
-    showToast(on ? 'Redact mode engaged — hover to reveal' : 'Redact mode lifted');
-  });
-
-  // ===== RESET FILTERS =====
-  document.getElementById('resetBtn').addEventListener('click', (e)=>{
-    clickSpark(e.clientX, e.clientY);
-    state.lang = 'ALL'; state.diff = 'ALL'; state.q = '';
-    searchInputEl.value = '';
-    render(); syncChips(); syncStatDeck();
-    showToast('Filters reset — full archive shown');
-  });
-
-  // ===== ENHANCEMENT: MAGNET ON ACTION BUTTONS =====
-  document.querySelectorAll('.action-btn').forEach(b=>attachMagnet(b, 9));
+  // ===== ENHANCEMENT: MAGNET ON BUTTONS =====
   document.querySelectorAll('.chip, .tool-btn, .badges-arrow').forEach(b=>attachMagnet(b, 5));
 
   render();
