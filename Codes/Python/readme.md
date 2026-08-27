@@ -4,7 +4,7 @@
 
 <p>
   <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/Problems%20Solved-17-orange?style=for-the-badge" alt="Problems Solved"/>
+  <img src="https://img.shields.io/badge/Problems%20Solved-19-orange?style=for-the-badge" alt="Problems Solved"/>
   <img src="https://img.shields.io/badge/Status-Ongoing-brightgreen?style=for-the-badge" alt="Status"/>
 </p>
 
