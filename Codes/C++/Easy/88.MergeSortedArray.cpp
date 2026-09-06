@@ -1,26 +1,25 @@
 class Solution {
 public:
-    string addBinary(string a, string b) {
-        int len1 = a.size() - 1;
-        int len2 = b.size() - 1;
-        int carry = 0;
-        string res = "";
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
 
-        while (len1 >= 0 || len2 >= 0 || carry) {
-            int sum = carry;
-
-            if (len1 >= 0){
-                sum += a[len1--] - '0';
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[k] = nums1[i];
+                --i;
+            } else {
+                nums1[k] = nums2[j];
+                --j;
             }
-            if (len2 >= 0){
-                sum += b[len2--] - '0';
-            }
-            
-           res = char(sum % 2 + '0') + res;
-            carry = sum / 2;
+            --k;
         }
 
-     
-        return res;
+        while (j >= 0) {
+            nums1[k] = nums2[j];
+            --j;
+            --k;
+        }
     }
 };
