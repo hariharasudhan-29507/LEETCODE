@@ -1,12 +1,20 @@
 class Solution {
 public:
-    int smallestRepunitDivByK(int k) {
-        if (k % 2 == 0 || k % 5 == 0) return -1;
-        int rem = 0;
-        for (int len = 1; len <= k; ++len) {
-            rem = (rem * 10 + 1) % k;
-            if (rem == 0) return len;
+    vector<int> selfDividingNumbers(int left, int right) {
+        vector<int> res;
+        for (int x = left; x <= right; ++x) {
+            int n = x;
+            bool valid = true;
+            while (n > 0) {
+                int d = n % 10;
+                if (d == 0 || x % d != 0) {
+                    valid = false;
+                    break;
+                }
+                n /= 10;
+            }
+            if (valid) res.push_back(x);
         }
-        return -1;
+        return res;
     }
 };
